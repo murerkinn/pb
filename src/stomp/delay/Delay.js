@@ -29,7 +29,7 @@ import Linear from "../../pot/Linear/Linear";
  *
  * @extends {Box}
  */
-export default class Delay extends Box {
+class Delay extends Box {
     /**
      * 
      * @param {AudioContext} context Audio context the pedal will work on.
@@ -80,3 +80,5 @@ export default class Delay extends Box {
         this.feedbackGainPot.setValue(newGain);
     };
 }
+
+export default Delay;

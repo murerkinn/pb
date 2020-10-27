@@ -28,7 +28,7 @@ import IConnectable from "../IConnectable";
  *
  * @implements {IConnectable}
  */
-export default class Output {
+class Output {
 
     /**
      * 
@@ -72,3 +72,5 @@ export default class Output {
      */
     disconnect() {}
 }
+
+export default Output;

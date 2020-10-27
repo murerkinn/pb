@@ -41,7 +41,7 @@ class Stage extends Component {
          * @type {AudioContext}
          */
         this.context = new AudioContext();
-        initIO();
+        this.initIO();
     }
 
     /**

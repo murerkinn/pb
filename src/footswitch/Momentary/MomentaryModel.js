@@ -25,7 +25,7 @@ import SwitchModel from "../Switch/SwitchModel";
  * @extends {SwitchModel}
  * 
  */
-export default class MomentaryModel extends SwitchModel {
+class MomentaryModel extends SwitchModel {
 
     /**
      * 
@@ -36,3 +36,5 @@ export default class MomentaryModel extends SwitchModel {
         this.state = false;
     }
 }
+
+export default MomentaryModel;

@@ -29,7 +29,7 @@ import Switch from "../Switch/Switch"
  * @extends {Switch}
  * 
  */
-export default class Momentary extends Switch {
+class Momentary extends Switch {
     /**
      * 
      * @param {string=} opt_name Name of the switch. Will be written under it.
@@ -46,3 +46,5 @@ export default class Momentary extends Switch {
         }
     }   
 }
+
+export default Momentary;

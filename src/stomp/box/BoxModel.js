@@ -20,14 +20,14 @@
  */
 
 import ConnectableModel from "../../Connectable/ConnectableModel"
-
+import helpers from "../../../lib/helpers";
 
 /**
  * Component model for base pedal
  * 
  * @extends {ConnectableModel}
  */
-export default class BoxModel extends ConnectableModel {
+class BoxModel extends ConnectableModel {
 
     /**
      * 
@@ -66,7 +66,9 @@ export default class BoxModel extends ConnectableModel {
 
         this.nodes = [
             [this.effects[0], this.inputBuffer, this.outputBuffer],
-            [this.outputBuffer, goog.array.peek(this.effects), null]
+            [this.outputBuffer, helpers.peek(this.effects), null]
         ]
     }
 }
+
+export default BoxModel;

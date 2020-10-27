@@ -26,7 +26,7 @@ import Input from "./Input";
  * 
  * @extends {Input}
  */
-export default class FileInput extends Input {
+class FileInput extends Input {
 
     /**
      * 
@@ -51,3 +51,5 @@ export default class FileInput extends Input {
         request.send();
     }
 }
+
+export default FileInput;

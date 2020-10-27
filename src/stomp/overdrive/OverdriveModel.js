@@ -26,7 +26,7 @@ import BoxModel from "../box/BoxModel";
  *
  * @extends {BoxModel}
  */
-export default class OverdriveModel extends BoxModel {
+class OverdriveModel extends BoxModel {
     /**
      * 
      * @param {AudioContext} context The context this component model will operate on.
@@ -82,3 +82,5 @@ export default class OverdriveModel extends BoxModel {
         this.lowPass.frequency.value = 2000 + newTone;
     };
 }
+
+export default OverdriveModel;

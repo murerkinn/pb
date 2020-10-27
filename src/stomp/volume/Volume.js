@@ -27,7 +27,7 @@ import VolumeModel from "./VolumeModel";
  *
  * @extends {Box}
  */
-export default class Volume extends Box {
+class Volume extends Box {
     /**
      * 
      * @param {AudioContext} context Audio context the pedal will work on.
@@ -46,3 +46,5 @@ export default class Volume extends Box {
         this.name = 'volume';
     }
 }
+
+export default Volume;

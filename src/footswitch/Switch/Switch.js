@@ -28,7 +28,7 @@ import Component from "../../ui/Component";
  * @extends {Component}
  *
  */
-export default class Switch extends Component {
+class Switch extends Component {
   
   /**
    * 
@@ -90,3 +90,5 @@ export default class Switch extends Component {
     return this.model.name ? `<div class="name">${this.model.name}</div>` : "";
   }
 }
+
+export default Switch;

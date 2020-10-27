@@ -107,7 +107,7 @@ class Component extends ErsteComponent {
      * @return { {length: number} } The elements as the result of the query. 
      */
     $(selector) {
-        return document.querySelectorAll(selector);
+        return document.querySelector(selector);
         // return goog.dom.query(selector, this.getElement());
     }
 

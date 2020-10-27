@@ -30,7 +30,7 @@ import BoxModel from "../box/BoxModel"
  * 
  * @extends {BoxModel}
  */
-export default class ConvModel extends BoxModel {
+class ConvModel extends BoxModel {
 
     /**
      * 
@@ -78,3 +78,5 @@ export default class ConvModel extends BoxModel {
         request.send();
     }
 }
+
+export default ConvModel;

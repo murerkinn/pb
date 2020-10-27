@@ -29,7 +29,7 @@ import Log from "../../pot/Log/Log";
  *
  * @extends {Box}
  */
-export default class Overdrive extends Box {
+class Overdrive extends Box {
     /**
      * 
      * @param {AudioContext} context Audio context the pedal will work on.
@@ -80,3 +80,5 @@ export default class Overdrive extends Box {
         this.tonePot.setValue(newValue);
     };
 }
+
+export default Overdrive;

@@ -19,6 +19,8 @@
  * @fileoverview Base pot component model.
  */
 
+import helpers from "../../../lib/helpers";
+
 /**
  * @extends {tart.ui.ComponentModel}
  *
@@ -43,12 +45,6 @@ export default class PotModel extends tart.ui.ComponentModel {
         else
             this.param = param;
 
-        /**
-         *
-         * @enum {string}
-         */
-        EventType = { VALUE_CHANGED: 'valueChanged'};
-
         this.minValue = opt_min || 0;
         this.maxValue = opt_max || 1;
         this.defaultValue = opt_default || 0.5;
@@ -70,7 +66,7 @@ export default class PotModel extends tart.ui.ComponentModel {
     setValue(newValue) {
         let oldValue = this.value;
 
-        newValue = goog.math.clamp();
+        newValue = helpers.clamp();
         this.processValue(newValue, oldValue);
 
         let event = {
@@ -96,7 +92,7 @@ export default class PotModel extends tart.ui.ComponentModel {
      * @param {number} oldValue The old value of this PotModel.
      */
     processValue(newValue, oldValue) {
-        this.value = goog.math.lerp(this.minValue, this.maxValue, newValue) * this.multiplier;
+        this.value = helpers.lerp(this.minValue, this.maxValue, newValue) * this.multiplier;
     }
 
     /**
@@ -115,3 +111,9 @@ export default class PotModel extends tart.ui.ComponentModel {
         return rv;
     }
 }
+
+/**
+ *
+ * @enum {string}
+ */
+PotModel.EventType = { VALUE_CHANGED: 'valueChanged'};

@@ -30,7 +30,7 @@ import ConvModel from "../conv/ConvModel";
  *
  * @extends {ConvModel}
  */
-export default class CabinetModel extends ConvModel {
+class CabinetModel extends ConvModel {
     /**
      * 
      * @param {AudioContext} context The context this component model will operate on.
@@ -44,3 +44,5 @@ export default class CabinetModel extends ConvModel {
         this.iRPath = 'audio/ir/speaker/AK-SPKRS_VinUs_002.wav';
     }
 }
+
+export default CabinetModel;

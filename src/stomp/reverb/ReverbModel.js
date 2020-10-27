@@ -35,7 +35,7 @@ import ConvModel from "../conv/ConvModel";
  *
  * @extends {ConvModel}
  */
-export default class ReverbModel extends ConvModel {
+class ReverbModel extends ConvModel {
     /**
      * 
      * @param {AudioContext} context The context this component model will operate on.
@@ -48,3 +48,5 @@ export default class ReverbModel extends ConvModel {
         this.iRPath = 'audio/ir/reverb/pcm90cleanplate.wav';
     }
 }
+
+export default ReverbModel;

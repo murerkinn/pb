@@ -27,7 +27,7 @@ import Component from "../../ui/Component";
  *
  * @extends {Component}
  */
-export default class Pot extends Component {
+class Pot extends Component {
 
     /**
      * 
@@ -50,11 +50,6 @@ export default class Pot extends Component {
         this.modelClass = PotModel;
 
         this.angle = 260;
-
-        /**
-         * @enum {string} Pot size.
-         */
-        Size = { SMALL: 'small', REGULAR: 'regular' };
 
         /**
          * @enum {string} DOM mappings.
@@ -116,3 +111,10 @@ export default class Pot extends Component {
         goog.events.listen(this.model, PotModel.EventType.VALUE_CHANGED, this.updateUi, false, this);
     }
 }
+
+/**
+ * @enum {string} Pot size.
+ */
+Pot.Size = { SMALL: 'small', REGULAR: 'regular' };
+
+export default Pot;

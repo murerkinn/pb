@@ -19,20 +19,22 @@
  * @fileoverview Base switch component model.
  */
 
- import SwitchModel from "../Switch/SwitchModel";
+import SwitchModel from "../Switch/SwitchModel";
 
- /**
-  * @extends {SwitchModel}
-  * 
-  */
- export default class ToggleModel extends SwitchModel {
+/**
+ * @extends {SwitchModel}
+ * 
+ */
+class ToggleModel extends SwitchModel {
 
    /**
     * 
     * @param {string=} opt_name Name of the switch. Will be written under it.
     */
-    constructor(opt_name) {
-       super(opt_name);
-       this.state = true;
-    }
- }
+   constructor(opt_name) {
+      super(opt_name);
+      this.state = true;
+   }
+}
+
+export default ToggleModel;

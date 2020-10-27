@@ -27,7 +27,7 @@ import Conv from "../conv/Conv";
  * 
  * @extends {Conv}
  */
-export default class Cabinet extends Conv {
+class Cabinet extends Conv {
     /**
      * 
      * @param {AudioContext} context Audio context the pedal will work on.
@@ -53,3 +53,5 @@ export default class Cabinet extends Conv {
         this.gainMultiplier = 10;
     }
 }
+
+export default Cabinet;

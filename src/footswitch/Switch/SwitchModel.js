@@ -23,7 +23,7 @@
  * @extends {tart.ui.ComponentModel}
  * 
  */
-export default class SwitchModel extends tart.ui.ComponentModel {
+class SwitchModel extends tart.ui.ComponentModel {
     
     /**
      * 
@@ -33,9 +33,8 @@ export default class SwitchModel extends tart.ui.ComponentModel {
         super(opt_name);
         this.name = opt_name;
         this.nodes = [[], [], []];
-        this.state = false;
-        EventType = {ON: 'on', OFF: 'off'};
-    }
+        this.state = false;   
+    } 
 
     /**
      * Toggles the switch and fires an event accordingly.
@@ -113,3 +112,7 @@ export default class SwitchModel extends tart.ui.ComponentModel {
         this.toggle();
     }
 }
+
+SwitchModel.EventType = {ON: 'on', OFF: 'off'};
+
+export default SwitchModel;

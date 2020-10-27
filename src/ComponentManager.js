@@ -28,9 +28,9 @@ class ComponentManager extends ErsteComponentManager {
 
     constructor() {
         super();
+        
         /** @type {Object.<string, Component>} */
         this.components = {};
-        goog.addSingletonGetter(ComponentManager);
     }
 
     /**

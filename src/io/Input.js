@@ -29,7 +29,7 @@ import IConnectable from "../IConnectable";
  * @implements {IConnectable}
  * @extends {goog.events.EventTarget}
  */
-export default class Input extends goog.events.EventTarget {
+class Input extends goog.events.EventTarget {
     
     /**
      * 
@@ -39,19 +39,6 @@ export default class Input extends goog.events.EventTarget {
         super();
         this.source = context.createBufferSource(); // creates a sound source
         this.source.loop = true;
-
-        /**
-         * Playback states that partially fulfills the deprecated playbackState in Web Audio API. Basically it helps to avoid
-         * exceptions when start or stop is called inappropriately.
-         *
-         * @enum {string}
-         */
-        State = {
-            NOT_STARTED: 'notStarted',
-            PLAYING: 'playing',
-            FINISHED: 'finished'
-        };
-
         this.state = Input.State.NOT_STARTED;
         this.source.addEventListener('ended', this.onEnded.bind(this));
     }
@@ -134,3 +121,17 @@ export default class Input extends goog.events.EventTarget {
      */
     getInput() {}
 }
+
+/**
+* Playback states that partially fulfills the deprecated playbackState in Web Audio API. Basically it helps to avoid
+* exceptions when start or stop is called inappropriately.
+*
+* @enum {string}
+*/
+Input.State = {
+   NOT_STARTED: 'notStarted',
+   PLAYING: 'playing',
+   FINISHED: 'finished'
+};
+
+export default Input;

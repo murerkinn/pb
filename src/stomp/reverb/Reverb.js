@@ -27,7 +27,7 @@ import Conv from "../conv/Conv";
  *
  * @extends {Conv}
  */
-export default class Reverb extends Conv {
+class Reverb extends Conv {
     /**
      * 
      * @param {AudioContext} context Audio context the pedal will work on.
@@ -50,3 +50,5 @@ export default class Reverb extends Conv {
         this.gainMultiplier = 1;
     }
 }
+
+export default Reverb;

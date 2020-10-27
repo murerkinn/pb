@@ -19,6 +19,7 @@
 import Connectable from "./Connectable/Connectable";
 import Component from "./ui/Component";
 import { shadowMaker } from "./ShadowMaker";
+import helpers from "../lib/helpers";
 
 class Board extends Connectable {
   constructor(context) {
@@ -72,7 +73,7 @@ class Board extends Connectable {
     super.addChildAt(child, index, opt_render);
 
     if (this.getPedals().length)
-        goog.dom.removeNode(this.$(this.mappings.EMPTY)[0]);
+        helpers.removeNode(this.$(this.mappings.EMPTY)[0]);
 
     this.routeInternal();
     if (this.isInDocument()) this.doShadows();

@@ -30,7 +30,7 @@ import ToggleModel from "./ToggleModel";
  * @extends {Switch}
  *
  */
-export default class Toggle extends Switch {
+class Toggle extends Switch {
     /**
      * 
      * @param {string=} opt_name Name of the switch. Will be written under it.
@@ -40,3 +40,5 @@ export default class Toggle extends Switch {
         this.modelClass = ToggleModel;
     }
 }
+
+export default Toggle;

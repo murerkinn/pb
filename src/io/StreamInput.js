@@ -28,7 +28,7 @@ import Input from "./Input";
  *
  * @extends {Input}
  */
-export default class StreamInput extends Input {
+class StreamInput extends Input {
 
     /**
      * 
@@ -63,3 +63,5 @@ export default class StreamInput extends Input {
         this.source.disconnect();
     }
 }
+
+export default StreamInput;

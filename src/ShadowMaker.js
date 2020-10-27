@@ -19,6 +19,8 @@
  * @fileoverview ShadowMaker for pb.
  */
 
+import color from "../lib/color";
+
 /**
  * Casts shadows on a box element.
  *
@@ -35,7 +37,7 @@ export function shadowMaker(element, length, darkness, weight, opt_before, opt_a
 
     let elStyle = document.defaultView.getComputedStyle(element, null);
     let colorText = elStyle.getPropertyValue('background-color');
-    let hslArray = goog.color.hexToHsl(goog.color.parse(colorText).hex);
+    let hslArray = color.hexToHsl(goog.color.parse(colorText).hex);
 
     darkness = darkness || 1;
 
@@ -107,7 +109,7 @@ export function textShadowMaker(element, length, before, after, invertY, invertX
     after = after || [];
     let elStyle = document.defaultView.getComputedStyle(element, null);
     let colorText = elStyle.getPropertyValue('color');
-    let hslArray = goog.color.hexToHsl(goog.color.parse(colorText).hex);
+    let hslArray = color.hexToHsl(goog.color.parse(colorText).hex);
 
     /**
      * Returns a shadow declaration.
@@ -159,14 +161,14 @@ export function textShadowMakerDom(element, length) {
 
     let elStyle = document.defaultView.getComputedStyle(element, null);
     let colorText = elStyle.getPropertyValue('color');
-    let rgbArray = goog.color.hexToRgb(goog.color.parse(colorText).hex);
+    let rgbArray = color.hexToRgb(goog.color.parse(colorText).hex);
 
     for (let i = 0; i < length; i++) {
         let el = element.cloneNode(true);
         el.style.position = 'absolute';
         el.style.webkitTransform = `translateZ(-${i}px)`;
 
-        el.style.color = goog.color.rgbArrayToHex(goog.color.darken(rgbArray, (i / length * 0.8) + 0.2));
+        el.style.color = color.rgbArrayToHex(color.darken(rgbArray, (i / length * 0.8) + 0.2));
         goog.dom.insertSiblingBefore(el, element);
 
         if (i == length - 1) {

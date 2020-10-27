@@ -26,7 +26,7 @@ import Toggle from "../../footswitch/toggle/Toggle";
 import Led from "../../Led";
 import Linear from "../../pot/Linear/Linear";
 
-export default class Box extends Connectable {
+class Box extends Connectable {
     constructor(context) {
         super(context);
 
@@ -156,3 +156,5 @@ export default class Box extends Connectable {
         }, this);
     }
 }
+
+export default Box;

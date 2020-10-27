@@ -25,7 +25,7 @@ import BoxModel from "../box/BoxModel";
  * Component model for delay pedal.
  * @extends {BoxModel}
  */
-export default class DelayModel extends BoxModel {
+class DelayModel extends BoxModel {
     /**
      * 
      * @param {AudioContext} context The context this component model will operate on.
@@ -71,3 +71,5 @@ export default class DelayModel extends BoxModel {
         this.inputBuffer.connect(this.outputBuffer);
     };
 }
+
+export default DelayModel;

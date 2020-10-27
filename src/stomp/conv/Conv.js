@@ -28,7 +28,7 @@ import Pot from "../../pot/pot/Pot";
  * 
  * @extends {Box}
  */
-export default class Conv extends Box {
+class Conv extends Box {
 
     /**
      * 
@@ -62,3 +62,5 @@ export default class Conv extends Box {
         this.pots = [].concat(this.volumePot);
     }
 }
+
+export default Conv;
