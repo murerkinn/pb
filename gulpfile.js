@@ -19,10 +19,10 @@ function compile() {
         language_out: 'ECMASCRIPT6',
         module_resolution: 'NODE',
         process_common_js_modules: true,
-        js: [
-            'node_modules/erste/package.json',
-            'node_modules/erste/**.js',
-        ],
+        // js: [
+        //     'node_modules/erste/package.json',
+        //     'node_modules/erste/**.js',
+        // ],
         jscomp_error: '*',
         jscomp_off: ['lintChecks', 'moduleLoad', 'undefinedVars'],
         // entry_point: 'index.js',

@@ -21,7 +21,7 @@
 
 import ComponentManager from "../ComponentManager";
 
-import ErsteComponent from 'erste';
+import {Component as ErsteComponent} from 'erste';
 
 /**
  * Component is from ersteJS.
