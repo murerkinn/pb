@@ -46,13 +46,6 @@ class Component extends ErsteComponent {
     /**
      * @override
      */
-    createDom() {
-        this.setElementInternal(/** @type {Element} */(document.createElement(this.templates_base())));
-    }
-
-    /**
-     * @override
-     */
     setModel(model) {
         super.setModel(model);
         this.model = this.getModel();
@@ -99,15 +92,6 @@ class Component extends ErsteComponent {
 
         this.model && this.model.dispose && this.model.dispose();
         this.model = null;
-    }
-
-    /**
-     * template for the component's root element.
-     * 
-     * @return {string} template.
-     */
-    templates_base() {
-        return `<div id="${this.id_}"></div>`;
     }
 }
 

@@ -77,11 +77,11 @@ class Switch extends Component {
   /**
    * @override
    */
-  templates_base() {
-    return `<div class="switch" id="${this.getId()}">
+  template() {
+    return `<div class="switch">
                     <div class="button"></div>
                     ${this.templates_name()}
-                </div>`;
+                </div>`
   }
 
   /**
