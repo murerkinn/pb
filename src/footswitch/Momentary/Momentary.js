@@ -21,7 +21,7 @@
 
 import MomentaryModel from "./MomentaryModel"
 import Switch from "../Switch/Switch"
-import ComponentManager from "../../ComponentManager";
+import ComponentManager from "erste/src/lib/base/component-manager";
 
 /**
  * Momentary switch component models a Momentary footswitch. It's on as long as you press it and turns off when you

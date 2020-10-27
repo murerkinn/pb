@@ -123,8 +123,8 @@ class Board extends Connectable {
   /**
    * @override
    */
-  templates_base() {
-    return `<div id="${this.getId()}" class="board">
+  template() {
+    return `<div class="board">
               ${this.templates_empty()}
             </div>`;
   };

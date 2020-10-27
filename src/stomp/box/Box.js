@@ -114,11 +114,11 @@ class Box extends Connectable {
     /**
      * @override
      */
-    templates_base() {
+    template() {
         let className = this.name.replace(/\s/g, '-').toLowerCase();
 
         return `
-            <div id="" class="box ${className}">
+            <div class="box ${className}">
                 <div class="pots"></div>
                 <div class="name">${this.name}</div>
                 <div class="leds"></div>

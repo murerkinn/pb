@@ -19,7 +19,6 @@
  * @fileoverview The base component class.
  */
 
-import ComponentManager from "../ComponentManager";
 
 import {Component as ErsteComponent} from 'erste';
 
@@ -29,13 +28,6 @@ import {Component as ErsteComponent} from 'erste';
  * @extends {ErsteComponent}
  */
 class Component extends ErsteComponent {
-    constructor() {
-        super();
-
-        const /** ComponentManager */ componentManager = ComponentManager.getInstance()
-        componentManager.setComponent(this)
-    }
-
     /**
      * Listens to the model's events. This method should be overridden by the implementer, and should keep the model's event
      * listeners.

@@ -64,8 +64,8 @@ class Led extends Component {
     /**
      * @override
      */
-    templates_base() {
-        return `<div class="led" id="${this.getId()}">
+    template() {
+        return `<div class="led">
                     <div class="nameHolder">
                         <div class="name">${this.name}</div>
                     </div>

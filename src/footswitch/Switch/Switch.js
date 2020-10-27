@@ -21,7 +21,7 @@
 
 import SwitchModel from "./SwitchModel";
 import Component from "../../ui/Component";
-import ComponentManager from "../../ComponentManager";
+import ComponentManager from "erste/src/lib/base/component-manager";
 
 /**
  * Switch component models a footswitch. This base class is used to toggle stompbox nodes.

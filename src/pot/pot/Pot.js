@@ -85,8 +85,8 @@ class Pot extends Component {
     /**
      * @override
      */
-    templates_base() {
-        return `<div class="pot ${this.size}" id="${this.getId()}">
+    template() {
+        return `<div class="pot ${this.size}">
                     <div class="knobHolder">
                         <div class="knob"></div>
                     </div>

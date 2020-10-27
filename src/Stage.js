@@ -130,8 +130,8 @@ class Stage extends Component {
     /**
      * @override
      */
-    templates_base() {
-        return `<div id="${this.getId()}" class="stage"></div>`;
+    template() {
+        return `<div class="stage"></div>`;
     }
 }
 
