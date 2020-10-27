@@ -19,7 +19,7 @@
  * @fileoverview Registry for Component. Manages DOM event interactions for these components.
  */
 
-import ErsteComponentManager from "erste/src/lib/base/component-manager";
+import {ComponentManager as ErsteComponentManager} from "erste/src/lib/base/component-manager";
 import Component from "./ui/Component";
 
 /**
