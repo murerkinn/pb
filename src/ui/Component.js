@@ -100,24 +100,12 @@ class Component extends ErsteComponent {
     }
 
     /**
-     * Much like jQuery, this method gets a DOM element that is a child of this component. It's a convenience method and
-     * wraps goog.dom.query.
-     * 
-     * @param {string} selector A selector string as understood by the querySelector.
-     * @return { {length: number} } The elements as the result of the query. 
-     */
-    $(selector) {
-        return document.querySelector(selector);
-        // return goog.dom.query(selector, this.getElement());
-    }
-
-    /**
      * template for the component's root element.
      * 
      * @return {string} template.
      */
     templates_base() {
-        return `<div id="${this.getId()}"></div>`;
+        return `<div id="${this.id_}"></div>`;
     }
 }
 

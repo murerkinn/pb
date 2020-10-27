@@ -22,6 +22,7 @@
  */
 
 import IConnectable from "../IConnectable";
+import EventEmitter from "erste/src/lib/base/eventemitter3";
 
 /**
  * The input wrapper for an audio context.
@@ -29,7 +30,7 @@ import IConnectable from "../IConnectable";
  * @implements {IConnectable}
  * @extends {goog.events.EventTarget}
  */
-class Input extends goog.events.EventTarget {
+class Input extends EventEmitter {
     
     /**
      * 

@@ -56,7 +56,7 @@ class Led extends Component {
      */
     updateUi() {
         if(this.isInDocument()) {
-            goog.dom.classes.enable(this.getElement(), 'on', this.state);
+            this.el.classList.toggle('on', this.state);
         }
     }
 
