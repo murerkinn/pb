@@ -31,7 +31,9 @@ import ErsteComponent from 'erste';
 class Component extends ErsteComponent {
     constructor() {
         super();
-        ComponentManager.getInstance().setComponent(this);
+
+        const /** ComponentManager */ componentManager = ComponentManager.getInstance()
+        componentManager.setComponent(this)
     }
 
     /**

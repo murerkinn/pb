@@ -50,13 +50,13 @@ class ConnectableModel extends Component {
         this.effects = [];
 
         /**
-         * @type {GainNode}
+         * @type {!GainNode}
          * @protected
          */
         this.inputBuffer = this.context.createGain();
         
         /**
-         * @type {GainNode}
+         * @type {!GainNode}
          * @protected
          */
         this.outputBuffer = this.context.createGain();

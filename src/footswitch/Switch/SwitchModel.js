@@ -19,10 +19,10 @@
  * @fileoverview Base switch component model.
  */
 
-import EventEmitter from "erste/src/lib/base/eventemitter3";
+import {EventEmitter} from "erste/src/lib/base/eventemitter3";
 
 /**
- * @extends EventEmitter
+ * @extends {EventEmitter}
  * 
  */
 class SwitchModel extends EventEmitter {
