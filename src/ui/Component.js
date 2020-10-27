@@ -31,7 +31,7 @@ import ErsteComponent from 'erste';
 class Component extends ErsteComponent {
     constructor() {
         super();
-        ComponentManager.getInstance().set(this);
+        ComponentManager.getInstance().setComponent(this);
     }
 
     /**
@@ -45,7 +45,7 @@ class Component extends ErsteComponent {
      * @override
      */
     createDom() {
-        this.setElementInternal(/** @type {Element} */(tart.dom.createElement(this.templates_base())));
+        this.setElementInternal(/** @type {Element} */(document.createElement(this.templates_base())));
     }
 
     /**

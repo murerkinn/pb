@@ -60,7 +60,7 @@ class Output {
      * Dummy method for the Connectable interface. It's meaningless for an output to be connected to another Connectable.
      * It's already the final node in the signal chain.
      */
-    connect() {}
+    connect(destination) {}
 
     /**
      * Dummy method for the Connectable interface. It's meaningless for an output to have an output.

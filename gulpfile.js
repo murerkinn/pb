@@ -24,7 +24,7 @@ function compile() {
         //     'node_modules/erste/**.js',
         // ],
         jscomp_error: '*',
-        jscomp_off: ['lintChecks', 'moduleLoad'],
+        jscomp_off: ['lintChecks', 'moduleLoad', 'undefinedVars'],
         // hide_warnings_for: ['erste'],
         // entry_point: 'index.js',
         generate_exports: true,
@@ -59,4 +59,3 @@ gulp.task('watch', () => {
 });
 
 gulp.task('default', gulp.parallel('clean', 'css:min', 'compile'));
-// gulp.task('default', gulp.parallel('compile'));

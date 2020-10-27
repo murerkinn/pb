@@ -19,17 +19,3 @@
  * @fileoverview Externs declarations for pb.
  */
 
-/**
- * @return {MediaStreamDestination}
- */
-AudioContext.prototype.createMediaStreamDestination = function() {};
-
-class MediaStreamDestination {};
-
-/**
- * @type {MediaStream}
- */
-MediaStreamDestination.prototype.stream;
-
-/** @type {number|string} */
-BiquadFilterNode.prototype.type;

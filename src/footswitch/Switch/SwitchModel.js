@@ -19,11 +19,13 @@
  * @fileoverview Base switch component model.
  */
 
+import EventEmitter from "erste/src/lib/base/eventemitter3";
+
 /**
- * @extends {tart.ui.ComponentModel}
+ * @extends {EventEmitter}
  * 
  */
-class SwitchModel extends tart.ui.ComponentModel {
+class SwitchModel extends EventEmitter {
     
     /**
      * 
@@ -67,7 +69,7 @@ class SwitchModel extends tart.ui.ComponentModel {
             if (nodes[0]) nodes[1].connect(nodes[0]);
         }
 
-        goog.array.forEach(this.nodes, (nodes) => {
+        this.nodes.forEach((nodes) => {
             if(nodes) {
                 ((nodes) => {
                     work(nodes);
@@ -88,7 +90,7 @@ class SwitchModel extends tart.ui.ComponentModel {
             if (nodes[2]) nodes[1].connect(nodes[2]);
         }
 
-        goog.array.forEach(this.nodes, (nodes) => {
+        this.nodes.forEach((nodes) => {
             ((nodes) => {
                 work(nodes);
                 setTimeout(() => {

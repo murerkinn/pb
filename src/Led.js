@@ -56,7 +56,7 @@ class Led extends Component {
      */
     updateUi() {
         if(this.isInDocument()) {
-            this.el.classList.toggle('on', this.state);
+            this.element_.classList.toggle('on', this.state);
         }
     }
 
@@ -84,10 +84,14 @@ class Led extends Component {
      */
     bindModelEvents() {
         if(this.footswitch) {
-            goog.events.listen(this.footswitch.model,
-                [SwitchModel.EventType.ON, SwitchModel.EventType.OFF],
-                this.onSwitchValueChange,
-                false, this);
+            this.footswitch.model.addEventListener([SwitchModel.EventType.ON, SwitchModel.EventType.OFF], this.onSwitchValueChange, false);
+            // goog.events.listen(
+            //     this.footswitch.model,
+            //     [SwitchModel.EventType.ON, SwitchModel.EventType.OFF],
+            //     this.onSwitchValueChange,
+            //     false,
+            //     this
+            // );
         }
     }
 

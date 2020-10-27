@@ -79,12 +79,19 @@ class Box extends Connectable {
         this.switches = [this.bypassSwitch];
 
         let that = this;
-        goog.events.listen(this.bypassSwitch.model, SwitchModel.EventType.ON, () => {
+        this.bypassSwitch.model.addEventListener(SwitchModel.EventType.ON, function() {
             this.model.routeInternal();
             setTimeout(() => {
                 that.model.routeInternal();
             }, 10);
-        }, false, this);
+        }, false);
+        
+        // goog.events.listen(this.bypassSwitch.model, SwitchModel.EventType.ON, () => {
+        //     this.model.routeInternal();
+        //     setTimeout(() => {
+        //         that.model.routeInternal();
+        //     }, 10);
+        // }, false, this);
     }
 
     /**

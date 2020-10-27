@@ -19,13 +19,14 @@
  * @fileoverview Base pot component model.
  */
 
+import EventEmitter from "erste";
 import helpers from "../../../lib/helpers";
 
 /**
- * @extends {tart.ui.ComponentModel}
+ * @extends {EventEmitter}
  *
  */
-export default class PotModel extends tart.ui.ComponentModel {
+class PotModel extends EventEmitter {
 
     /**
      * 
@@ -117,3 +118,5 @@ export default class PotModel extends tart.ui.ComponentModel {
  * @enum {string}
  */
 PotModel.EventType = { VALUE_CHANGED: 'valueChanged'};
+
+export default PotModel;

@@ -19,16 +19,16 @@
  * @fileoverview Base connectable component model. Hosts input and output buffer, chain and effects base.
  */
 
-import IConnectableModel from "../IConnectableModel"
+import IConnectableModel from "../IConnectableModel";
+import Component from "erste";
 
 /**
  * Component model for base connectables.
  * 
  * @implements {IConnectableModel}
- * @extends {goog.Disposable}
- * @requires goog.Disposable
+ * @extends {Component}
  */
-class ConnectableModel extends goog.Disposable {
+class ConnectableModel extends Component {
     
     /**
      * 

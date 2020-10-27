@@ -27,8 +27,7 @@ import EventEmitter from "erste/src/lib/base/eventemitter3";
 /**
  * The input wrapper for an audio context.
  * 
- * @implements {IConnectable}
- * @extends {goog.events.EventTarget}
+ * @extends {EventEmitter}
  */
 class Input extends EventEmitter {
     

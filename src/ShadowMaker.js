@@ -19,7 +19,10 @@
  * @fileoverview ShadowMaker for pb.
  */
 
-import { hexToHsl, hexToRgb, rgbArrayToHex, darken } from "../lib/color";
+import color from "../lib/color";
+import style from "../lib/style";
+import dom from "../lib/dom";
+
 
 /**
  * Casts shadows on a box element.
@@ -37,7 +40,7 @@ export function shadowMaker(element, length, darkness, weight, opt_before, opt_a
 
     let elStyle = document.defaultView.getComputedStyle(element, null);
     let colorText = elStyle.getPropertyValue('background-color');
-    let hslArray = hexToHsl(goog.color.parse(colorText).hex);
+    let hslArray = color.hexToHsl(color.parse(colorText).hex);
 
     darkness = darkness || 1;
 
@@ -61,8 +64,8 @@ export function shadowMaker(element, length, darkness, weight, opt_before, opt_a
 
     // let all = '';
     let shadows = [];
-    let xAngle = (window.innerWidth / 2 - goog.style.getPageOffset(element).x - element.offsetWidth / 2) / 30;
-    let yAngle = (window.innerHeight - goog.style.getPageOffset(element).y - element.offsetHeight / 2) / 80;
+    let xAngle = (window.innerWidth / 2 - style.getPageOffset(element).x - element.offsetWidth / 2) / 30;
+    let yAngle = (window.innerHeight - style.getPageOffset(element).y - element.offsetHeight / 2) / 80;
     let yConDist = yAngle * length / 10;
 
     let con = length;
@@ -109,7 +112,7 @@ export function textShadowMaker(element, length, before, after, invertY, invertX
     after = after || [];
     let elStyle = document.defaultView.getComputedStyle(element, null);
     let colorText = elStyle.getPropertyValue('color');
-    let hslArray = hexToHsl(goog.color.parse(colorText).hex);
+    let hslArray = color.hexToHsl(color.parse(colorText).hex);
 
     /**
      * Returns a shadow declaration.
@@ -125,8 +128,8 @@ export function textShadowMaker(element, length, before, after, invertY, invertX
     };
     // let all = '';
     let shadows = [];
-    let xAngle = (window.innerWidth / 2 - goog.style.getPageOffset(element).x - element.offsetWidth / 2) / 30;
-    let yAngle = (window.innerHeight - goog.style.getPageOffset(element).y - element.offsetHeight / 2) / 30;
+    let xAngle = (window.innerWidth / 2 - style.getPageOffset(element).x - element.offsetWidth / 2) / 30;
+    let yAngle = (window.innerHeight - style.getPageOffset(element).y - element.offsetHeight / 2) / 30;
 
     let yConDist = yAngle * length / 10;
 
@@ -161,15 +164,15 @@ export function textShadowMakerDom(element, length) {
 
     let elStyle = document.defaultView.getComputedStyle(element, null);
     let colorText = elStyle.getPropertyValue('color');
-    let rgbArray = hexToRgb(goog.color.parse(colorText).hex);
+    let rgbArray = color.hexToRgb(color.parse(colorText).hex);
 
     for (let i = 0; i < length; i++) {
         let el = element.cloneNode(true);
         el.style.position = 'absolute';
         el.style.webkitTransform = `translateZ(-${i}px)`;
 
-        el.style.color = rgbArrayToHex(darken(rgbArray, (i / length * 0.8) + 0.2));
-        goog.dom.insertSiblingBefore(el, element);
+        el.style.color = color.rgbArrayToHex(color.darken(rgbArray, (i / length * 0.8) + 0.2));
+        dom.insertSiblingBefore(el, element);
 
         if (i == length - 1) {
             el.style.textShadow = '0 0 10px black,0 0 20px black,0 0 30px black,0 0 40px black,0 0 50px black';

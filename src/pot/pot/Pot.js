@@ -108,7 +108,8 @@ class Pot extends Component {
      * @override
      */
     bindModelEvents() {
-        goog.events.listen(this.model, PotModel.EventType.VALUE_CHANGED, this.updateUi, false, this);
+        this.model.addEventListener(PotModel.EventType.VALUE_CHANGED, this.updateUi, false);
+        // goog.events.listen(this.model, PotModel.EventType.VALUE_CHANGED, this.updateUi, false, this);
     }
 }
 
