@@ -20,6 +20,7 @@
  */
 
 import ErsteComponentManager from "erste/src/lib/base/component-manager";
+import Component from "./ui/Component";
 
 /**
  * @extends {ErsteComponentManager}
@@ -38,7 +39,7 @@ class ComponentManager extends ErsteComponentManager {
      * @param {Component} cmp Component which will be set to components.
      */
     set(cmp) {
-        this.components[cmp.getId()] = cmp;
+        this.components[cmp.getUid] = cmp;
     }
 
     /**
@@ -46,7 +47,7 @@ class ComponentManager extends ErsteComponentManager {
      * @param {Component} cmp Component which will be removed from components.
      */
     remove(cmp) {
-        delete this.components[cmp.getId()];
+        delete this.components[cmp.getUid];
     }
 }
 

@@ -20,7 +20,7 @@
  */
 
 import ConnectableModel from "../../Connectable/ConnectableModel"
-import helpers from "../../../lib/helpers";
+import math from "../../../lib/math";
 
 /**
  * Component model for base pedal
@@ -55,7 +55,6 @@ class BoxModel extends ConnectableModel {
      * Routes the internal effects chain.
      * 
      * @protected
-     * @requires goog.array
      */
     routeInternal() {
         let chain = this.chain;
@@ -66,7 +65,7 @@ class BoxModel extends ConnectableModel {
 
         this.nodes = [
             [this.effects[0], this.inputBuffer, this.outputBuffer],
-            [this.outputBuffer, helpers.peek(this.effects), null]
+            [this.outputBuffer, math.peek(this.effects), null]
         ]
     }
 }

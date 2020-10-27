@@ -40,7 +40,7 @@ class ConnectableModel extends Component {
         this.context = context;
 
         /**
-         * @type {Array.<AudioNode>}
+         * @type {Array.<!AudioNode>}
          */
         this.chain = [];
             

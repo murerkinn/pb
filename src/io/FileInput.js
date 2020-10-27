@@ -43,7 +43,7 @@ class FileInput extends Input {
         request.responseType = 'arraybuffer';
 
         request.onload  = function() {
-            context.decodeAudioData(/** @type {ArrayBuffer} */(request.response), (buffer) => {
+            context.decodeAudioData(/** @type {!ArrayBuffer} */(request.response), (buffer) => {
                 that.setSourceBuffer(buffer);
                 that.dispatchEvent('loaded');
             });

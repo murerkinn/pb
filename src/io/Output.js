@@ -36,11 +36,12 @@ class Output {
      */
     constructor(context) {
         this.source = context.destination; // creates a sound source
+        this.prev = null;
     }
 
     /**
      * Gets the destination node.
-     *
+     * @override
      * @return {AudioDestinationNode} The final node in the signal chain.
      */
     getInput() {
@@ -49,7 +50,7 @@ class Output {
 
     /**
      * Lets the output know who is connected to it.
-     *
+     * @override
      * @param {IConnectable} prev Input node.
      */
     setPrev(prev) {
@@ -59,6 +60,8 @@ class Output {
     /**
      * Dummy method for the Connectable interface. It's meaningless for an output to be connected to another Connectable.
      * It's already the final node in the signal chain.
+     * 
+     * @override
      */
     connect(destination) {}
 
@@ -69,6 +72,8 @@ class Output {
 
     /**
      * Dummy method for the Connectable interface. The output is never connected to anything else.
+     * 
+     * @override
      */
     disconnect() {}
 }

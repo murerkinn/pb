@@ -22,7 +22,7 @@
 import EventEmitter from "erste/src/lib/base/eventemitter3";
 
 /**
- * @extends {EventEmitter}
+ * @extends EventEmitter
  * 
  */
 class SwitchModel extends EventEmitter {

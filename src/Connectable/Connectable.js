@@ -67,7 +67,7 @@ class Connectable extends Component {
     /**
      * Lets the pedal instance know who is connected to its input.
      *
-     * @param {pb.IConnectable} prev Previous pedal whose output will connect to this pedal's input.
+     * @param {IConnectable} prev Previous pedal whose output will connect to this pedal's input.
      */
     setPrev(prev) {
         this.model.setPrev(prev.getOutput());
@@ -76,7 +76,7 @@ class Connectable extends Component {
     /**
      * Connects the output of this pedal to another pedal.
      *
-     * @param {pb.IConnectable} destination Next pedal where the output of this pedal will connect to.
+     * @param {IConnectable} destination Next pedal where the output of this pedal will connect to.
      */
     connect(destination) {
         destination.setPrev(this);

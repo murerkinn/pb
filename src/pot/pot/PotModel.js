@@ -20,7 +20,7 @@
  */
 
 import EventEmitter from "erste";
-import helpers from "../../../lib/helpers";
+import math from "../../../lib/math";
 
 /**
  * @extends {EventEmitter}
@@ -67,7 +67,7 @@ class PotModel extends EventEmitter {
     setValue(newValue) {
         let oldValue = this.value;
 
-        newValue = helpers.clamp();
+        newValue = math.clamp(newValue, 0, 1);
         this.processValue(newValue, oldValue);
 
         let event = {
@@ -93,7 +93,7 @@ class PotModel extends EventEmitter {
      * @param {number} oldValue The old value of this PotModel.
      */
     processValue(newValue, oldValue) {
-        this.value = helpers.lerp(this.minValue, this.maxValue, newValue) * this.multiplier;
+        this.value = math.lerp(this.minValue, this.maxValue, newValue) * this.multiplier;
     }
 
     /**

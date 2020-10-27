@@ -19,3 +19,4 @@
  * @fileoverview Externs declarations for pb.
  */
 
+navigator.getUserMedia = function(opt_options, callback, errCallback) {};

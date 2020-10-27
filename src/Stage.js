@@ -24,6 +24,7 @@ import Component from "./ui/Component";
 import FileInput from "./io/FileInput";
 import Input from "./io/Input";
 import Output from "./io/Output";
+import Board from "./Board";
 
 /**
  * Stage hosts pedal boards, input and output.

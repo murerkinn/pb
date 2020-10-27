@@ -21,6 +21,7 @@
 
 import SwitchModel from "./SwitchModel";
 import Component from "../../ui/Component";
+import ComponentManager from "../../ComponentManager";
 
 /**
  * Switch component models a footswitch. This base class is used to toggle stompbox nodes.
@@ -42,8 +43,8 @@ class Switch extends Component {
       BUTTON: ".button",
     };
     this.events = {
-      [goog.events.EventType.MOUSEDOWN]: {
-        [proto.mappings.BUTTON]: this.toggle,
+      [ComponentManager.events['mousedown']]: {
+        [this.mappings.BUTTON]: this.toggle,
       },
     };
   }

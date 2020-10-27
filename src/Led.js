@@ -21,6 +21,7 @@
 
 import SwitchModel from "./footswitch/Switch/SwitchModel";
 import Component from "./ui/Component";
+import Switch from "./footswitch/Switch/Switch";
 
 /**
  * LED is a simple component used to show the status of switches.
