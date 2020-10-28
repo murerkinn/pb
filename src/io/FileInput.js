@@ -45,7 +45,7 @@ class FileInput extends Input {
         request.onload  = function() {
             context.decodeAudioData(/** @type {!ArrayBuffer} */(request.response), (buffer) => {
                 that.setSourceBuffer(buffer);
-                that.dispatchEvent('loaded');
+                that.emit('loaded');
             });
         }
         request.send();

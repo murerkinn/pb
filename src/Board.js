@@ -20,11 +20,16 @@ import Connectable from "./Connectable/Connectable";
 import Component from "./ui/Component";
 import { shadowMaker } from "./ShadowMaker";
 import helpers from "../lib/helpers";
+import Box from "./stomp/box/Box";
 
 class Board extends Connectable {
   constructor(context) {
     super(context);
     this.context = context;
+
+    this.output = undefined;
+
+    this.mediaStreamDestination = undefined;
 
     /**
      * Pedals of this board.
@@ -55,7 +60,7 @@ class Board extends Connectable {
    */
   doShadows() {
     this.getPedals().forEach((pedal) => {
-      shadowMaker(pedal.getElement(), 40, 0.5, 0.7);
+      shadowMaker(pedal.el, 40, 0.5, 0.7);
       pedal.pots.forEach((pot) => {
         shadowMaker(pot.$(pot.mappings.KNOB_HOLDER)[0], 10, 0.5, 4);
       });
@@ -97,7 +102,7 @@ class Board extends Connectable {
     let el = super.removeChild(child, opt_unrender);
 
     if (this.getPedals().length == 0)
-        this.getElement().innerHTML = this.templates_empty();
+        this.el.innerHTML = this.templates_empty();
 
     this.routeInternal();
     return el;
@@ -106,8 +111,8 @@ class Board extends Connectable {
   /**
    * @override
    */
-  enterDocument() {
-    super.enterDocument();
+  onAfterRender() {
+    super.onAfterRender();
     this.doShadows();
   };
 

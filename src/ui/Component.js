@@ -28,6 +28,13 @@ import {Component as ErsteComponent} from 'erste';
  * @extends {ErsteComponent}
  */
 class Component extends ErsteComponent {
+
+    constructor() {
+        super();
+        this.model = undefined;
+        this.children = [];
+    }
+
     /**
      * Listens to the model's events. This method should be overridden by the implementer, and should keep the model's event
      * listeners.
@@ -35,21 +42,14 @@ class Component extends ErsteComponent {
      */
     bindModelEvents() {}
 
-    /**
-     * @override
-     */
     setModel(model) {
-        super.setModel(model);
-        this.model = this.getModel();
+        this.model = model;
     }
 
-    /**
-     * @override
-     */
     addChildAt(child, index, opt_render) {
         if (opt_render != false) opt_render = true;
 
-        super.addChildAt(child, index, opt_render);
+        // super.addChildAt(child, index, opt_render);
     }
 
     /**
@@ -76,11 +76,12 @@ class Component extends ErsteComponent {
         return ids.map((id) => that.getChild(id))
     }
 
-    /**
-     * @override
-     */
+    removeChild(child, opt_unrender) {
+        return;
+    }
+
     disposeInternal() {
-        super.disposeInternal();
+        super.dispose();
 
         this.model && this.model.dispose && this.model.dispose();
         this.model = null;

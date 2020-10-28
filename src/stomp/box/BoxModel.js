@@ -38,6 +38,8 @@ class BoxModel extends ConnectableModel {
 
         this.level = this.context.createGain();
         this.effects.push(this.level);
+
+        this.nodes = [];
     }
 
     /**
@@ -53,7 +55,7 @@ class BoxModel extends ConnectableModel {
 
     /**
      * Routes the internal effects chain.
-     * 
+     * @override
      * @protected
      */
     routeInternal() {

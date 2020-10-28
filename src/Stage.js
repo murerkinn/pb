@@ -34,7 +34,10 @@ import Board from "./Board";
 class Stage extends Component {
     constructor() {
         super();
-
+        this.input = undefined;
+        this.output = undefined;
+        this.board = undefined;
+        this.mediaStreamDestination = undefined;
         /**
          * The audio context for this stage.
          * 
@@ -117,7 +120,8 @@ class Stage extends Component {
         this.input.disconnect();
         this.input = new FileInput(this.context, url);
         this.route();
-        this.input.addEventListener('loaded', this.input.play.bind(this.input, 0), false);
+        this.input.addEventListener('loaded', function() {
+            this.input.play.bind(this.input, 0)}, false);
     }
 
     /**

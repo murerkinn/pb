@@ -56,7 +56,7 @@ export function shadowMaker(element, length, darkness, weight, opt_before, opt_a
      * @param {number} opt_d Density.
      * @return {string} The shadow CSS declaration.
      */
-    let shadowTemplate = function(x, y, blur, a, opt_d) {
+    let shadowTemplate = function(x, y, blur, a, opt_d=undefined) {
         opt_d = opt_d || 0;
         let d = `${opt_d}px`;
         return `${x}px ${y}px ${blur}px ${d} hsl(${hslArray[0]}, ${hslArray[1]*100}%, ${a}%)`;

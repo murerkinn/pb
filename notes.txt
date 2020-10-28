@@ -1,0 +1,8 @@
+Stage.js 37 -> this.input = undefined 
+ERROR - [JSC_ILLEGAL_PROPERTY_CREATION] Cannot add a property to a struct instance after it is constructed. (If you already declared the property, make sure to give it a type.)
+------------------------------------
+
+Box.js createSwitches() -> this.leds = [this.led] yerine this.leds.push(this.led) yazıp constructor içinde this.leds = []
+stomp/box/Box.js:161:13: ERROR - [JSC_INEXISTENT_PROPERTY] Property leds never defined on Box
+
+------------------------------------

@@ -71,7 +71,7 @@ class ConvModel extends BoxModel {
         request.responseType = 'arraybuffer';
 
         request.onload = function() {
-            that.context.decodeAudioData(/** @type {ArrayBuffer} */(request.response), (buffer) => {
+            that.context.decodeAudioData(/** @type {!ArrayBuffer} */(request.response), (buffer) => {
                 that.conv.buffer = buffer;
             });
         }

@@ -98,9 +98,10 @@ class Pot extends Component {
 
     /**
      * Render method updates its knob.
+     * @override
      */
-    enterDocument() {
-        super.enterDocument();
+    onAfterRender() {
+        super.onAfterRender();
         this.updateUi();
     }
 

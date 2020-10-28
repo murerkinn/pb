@@ -20,7 +20,7 @@
  */
 
 import IConnectableModel from "../IConnectableModel";
-import Component from "erste";
+import Component from "../ui/Component";
 
 /**
  * Component model for base connectables.

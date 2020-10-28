@@ -41,6 +41,10 @@ class Overdrive extends Box {
          */
         this.modelClass = OverdriveModel;
 
+        this.drivePot = undefined;
+        this.tonePot = undefined;
+        
+
         /**
          * @override
          */
@@ -52,8 +56,8 @@ class Overdrive extends Box {
      */
     createPots() {
         super.createPots();
-        let driveHandler = goog.bind(this.model.setDrive, this.model);
-        let toneHandler = goog.bind(this.model.setTone, this.model);
+        let driveHandler = this.model.setDrive.bind(this.model);
+        let toneHandler = this.model.setTone.bind(this.model);
 
         this.drivePot = new Log(driveHandler, 'drive', 2000);
         this.tonePot = new Log(toneHandler, 'tone', 3000, Pot.Size.SMALL);

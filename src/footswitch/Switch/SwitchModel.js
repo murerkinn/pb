@@ -32,7 +32,7 @@ class SwitchModel extends EventEmitter {
      * @param {string=} opt_name Name of the switch. Will be written under it.
      */
     constructor(opt_name) {
-        super(opt_name);
+        super();
         this.name = opt_name;
         this.nodes = [[], [], []];
         this.state = false;   
@@ -53,7 +53,7 @@ class SwitchModel extends EventEmitter {
         eventType = this.state ? SwitchModel.EventType.ON : 
             SwitchModel.EventType.OFF;
 
-        this.dispatchEvent({
+        this.emit({
             type: eventType,
             newValue: this.state,
             oldValue: oldState

@@ -75,8 +75,8 @@ class Led extends Component {
     /**
      * @override
      */
-    enterDocument() {
-        super.enterDocument();
+    onAfterRender() {
+        super.onAfterRender();
         this.updateUi();
     }
 

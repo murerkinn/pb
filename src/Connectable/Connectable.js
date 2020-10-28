@@ -18,6 +18,7 @@
 import Component from "../ui/Component";
 import ConnectableModel from "./ConnectableModel";
 import IConnectable from "../IConnectable";
+import Output from "../io/Output";
 
 /**
  * Base component.
@@ -76,7 +77,7 @@ class Connectable extends Component {
     /**
      * Connects the output of this pedal to another pedal.
      *
-     * @param {IConnectable} destination Next pedal where the output of this pedal will connect to.
+     * @param {IConnectable|Output} destination Next pedal where the output of this pedal will connect to.
      */
     connect(destination) {
         destination.setPrev(this);

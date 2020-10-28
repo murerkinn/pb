@@ -19,7 +19,7 @@
  * @fileoverview Base pot component model.
  */
 
-import EventEmitter from "erste";
+import EventEmitter from "erste/src/lib/base/eventemitter3";
 import math from "../../../lib/math";
 
 /**
@@ -81,7 +81,7 @@ class PotModel extends EventEmitter {
         else
             this.callback(this.value, oldValue);
 
-        this.dispatchEvent(event);
+        this.emit(event);
     }
 
     /**

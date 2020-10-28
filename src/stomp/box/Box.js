@@ -32,6 +32,14 @@ class Box extends Connectable {
 
         this.modelClass = BoxModel;
 
+        this.volumePot = undefined;
+        this.bypassSwitch = undefined;
+        this.led = undefined;
+
+        this.leds = [];
+        this.switches = [];
+        this.pots = [];
+
         /**
          * DOM selector mappings.
          *
@@ -66,7 +74,7 @@ class Box extends Connectable {
         this.volumePot = new Linear(this.model.level.gain, 'volume', 1);
         this.volumePot.setValue(1);
 
-        this.pots = [this.volumePot];
+        this.pots.push(this.volumePot);
     }
 
     /**
@@ -75,8 +83,8 @@ class Box extends Connectable {
     createSwitches() {
         this.bypassSwitch = new Toggle();
         this.led = new Led(this.bypassSwitch);
-        this.leds = [this.led];
-        this.switches = [this.bypassSwitch];
+        this.leds.push(this.led);
+        this.switches.push(this.bypassSwitch);
 
         let that = this;
         this.bypassSwitch.model.addEventListener(SwitchModel.EventType.ON, function() {
@@ -85,13 +93,6 @@ class Box extends Connectable {
                 that.model.routeInternal();
             }, 10);
         }, false);
-        
-        // goog.events.listen(this.bypassSwitch.model, SwitchModel.EventType.ON, () => {
-        //     this.model.routeInternal();
-        //     setTimeout(() => {
-        //         that.model.routeInternal();
-        //     }, 10);
-        // }, false, this);
     }
 
     /**
@@ -146,9 +147,10 @@ class Box extends Connectable {
 
     /**
      * This method is called after the stomp box is appended to DOM. It then renders all its potentiometers.
+     * @override
      */
-    enterDocument() {
-        super.enterDocument();
+    onAfterRender() {
+        super.onAfterRender();
 
         this.pots.forEach((pot) => {
             pot.render(this.$(this.mappings.POTS)[0]);

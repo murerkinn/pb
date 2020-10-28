@@ -21,7 +21,7 @@
 
 import MomentaryModel from "./MomentaryModel"
 import Switch from "../Switch/Switch"
-import ComponentManager from "erste/src/lib/base/component-manager";
+// import ComponentManager from "erste/src/lib/base/component-manager";
 
 /**
  * Momentary switch component models a Momentary footswitch. It's on as long as you press it and turns off when you
@@ -40,11 +40,11 @@ class Momentary extends Switch {
 
         this.state = false;
         this.modelClass = MomentaryModel;
-        this.events = {
-            [ComponentManager.events['mousedown']]: {
-                [this.mappings.BUTTON]: this.toggle
-            }
-        }
+        // this.events = {
+        //     [ComponentManager.events['mousedown']]: {
+        //         [this.mappings.BUTTON]: this.toggle
+        //     }
+        // }
     }   
 }
 

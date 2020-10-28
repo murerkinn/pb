@@ -21,7 +21,7 @@
 
 import SwitchModel from "./SwitchModel";
 import Component from "../../ui/Component";
-import ComponentManager from "erste/src/lib/base/component-manager";
+// import ComponentManager from "erste/src/lib/base/component-manager";
 
 /**
  * Switch component models a footswitch. This base class is used to toggle stompbox nodes.
@@ -42,11 +42,12 @@ class Switch extends Component {
     this.mappings = {
       BUTTON: ".button",
     };
-    this.events = {
-      [ComponentManager.events['mousedown']]: {
-        [this.mappings.BUTTON]: this.toggle,
-      },
-    };
+
+    // this.events = {
+    //   [ComponentManager.events['mousedown']]: {
+    //     [this.mappings.BUTTON]: this.toggle,
+    //   },
+    // };
   }
 
   /**

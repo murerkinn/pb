@@ -53,12 +53,15 @@ class StreamInput extends Input {
         }, (stream) => {
             that.disconnect();
             that.source = context.createMediaStreamSource(stream);
-            that.dispatchEvent('loaded');
+            that.emit('loaded');
         }, (err) => {
             throw new Error(err);
         });
     }
 
+    /**
+     * @override
+     */
     stop() {
         this.source.disconnect();
     }

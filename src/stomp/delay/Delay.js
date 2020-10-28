@@ -41,6 +41,10 @@ class Delay extends Box {
          */
         this.modelClass = DelayModel;
 
+        this.delayTimerPot = undefined;
+        this.feedbackGainPot = undefined;
+        
+
         /**
          * @override
          */
@@ -52,8 +56,8 @@ class Delay extends Box {
      */
     createPots() {
         super.createPots();
-        let delayTimeHandler = goog.bind(this.model.setDelayTimer, this.model);
-        let feedbackGainHandler = goog.bind(this.model.setFeedbackGain, this.model);
+        let delayTimeHandler = this.model.setDelayTimer.bind(this.model);
+        let feedbackGainHandler = this.model.setFeedbackGain.bind(this.model);
 
         this.delayTimerPot = new Log(delayTimeHandler, 'delay time', 5);
         this.feedbackGainPot = new Linear(feedbackGainHandler, 'feedback gain', 0.95);

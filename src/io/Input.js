@@ -71,7 +71,7 @@ class Input extends EventEmitter {
      * Sets the source buffer of this input.
      * 
      * @protected
-     * @param {*} sourceBuffer The new buffer.
+     * @param {AudioBuffer} sourceBuffer The new buffer.
      */
     setSourceBuffer(sourceBuffer) {
         this.source.buffer = sourceBuffer;
