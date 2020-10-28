@@ -67,6 +67,7 @@ class Output {
 
     /**
      * Dummy method for the Connectable interface. It's meaningless for an output to have an output.
+     * @override
      */
     getOutput() {}
 

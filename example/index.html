@@ -14,7 +14,7 @@
     <link href='http://fonts.googleapis.com/css?family=Damion' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Yellowtail' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Radley:400,400italic' rel='stylesheet' type='text/css'>
-    <script type="text/javascript" src="../dist/compiled.js"></script>
+    <script type="text/javascript" src="../dist/pedalboard.js"></script>
 
     <!-- For development comment out the line above and uncomment the lines below. -->
 
@@ -45,17 +45,18 @@
 </div>
 
 <script type="text/javascript">
-    var stage = new pb.Stage();
+    var pedalboard = window.pedalboard;
+    var stage = new pedalboard.Stage();
     var ctx = stage.getContext();
 
-    var board = new pb.Board(ctx);
+    var board = new Board(ctx);
     stage.setBoard(board);
 
-    var overdrive = new pb.stomp.Overdrive(ctx);
-    var reverb = new pb.stomp.Reverb(ctx);
-    var volume = new pb.stomp.Volume(ctx);
-    var cabinet = new pb.stomp.Cabinet(ctx);
-    var delay = new pb.stomp.Delay(ctx);
+    var overdrive = new Overdrive(ctx);
+    var reverb = new Reverb(ctx);
+    var volume = new Volume(ctx);
+    var cabinet = new Cabinet(ctx);
+    var delay = new Delay(ctx);
 
     board.addPedals([overdrive, delay, reverb, volume, cabinet]);
 
@@ -86,7 +87,7 @@
 
     var playLineIn = function() {
         stage.stop();
-        stage.input = new pb.io.StreamInput(stage.getContext());
+        stage.input = new StreamInput(stage.getContext());
         stage.input.addEventListener('loaded', function() {
             stage.route();
         });

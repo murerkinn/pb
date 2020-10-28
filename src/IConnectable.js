@@ -41,7 +41,6 @@ class IConnectable {
     /**
      * Sets the input of this IConnectable to a node.
      * 
-     * @param {IConnectable} prev The node that will be connected to the input of this IConnectable.
      */
     setPrev(prev) {}
 
@@ -51,6 +50,13 @@ class IConnectable {
      * @return {!(AudioNode|AudioParam)} The effect node of the IConnectable.
      */
     getInput() {}
+
+    /**
+     * Gets the output buffer of a pedal.
+     *
+     * @return {!(AudioNode|AudioParam)} The output buffer of this component.
+     */
+    getOutput() {}
 }
 
 export default IConnectable;

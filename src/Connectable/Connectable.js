@@ -59,7 +59,7 @@ class Connectable extends Component {
 
     /**
      * Gets the output buffer of a pedal.
-     *
+     * @override
      * @return {!(AudioNode|AudioParam)} The output buffer of this component.
      */
     getOutput() {

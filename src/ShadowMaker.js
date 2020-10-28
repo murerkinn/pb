@@ -27,7 +27,7 @@ import dom from "../lib/dom";
 /**
  * Casts shadows on a box element.
  *
- * @param {Element} element Element to cast my shadows upon.
+ * @param {HTMLElement} element Element to cast my shadows upon.
  * @param {number} length Length of the shadow.
  * @param {number} darkness How dark the shadow will be.
  * @param {number} weight How vast the shadow will be.
@@ -100,7 +100,7 @@ export function shadowMaker(element, length, darkness, weight, opt_before, opt_a
 /**
  * Casts shadows on a text element.
  *
- * @param {Element} element Element to cast my shadows upon.
+ * @param {HTMLElement} element Element to cast my shadows upon.
  * @param {number} length Length of the shadow.
  * @param {Array.<string>} before Any shadows to cast before mine.
  * @param {Array.<string>} after Any shadows to cast after mine.
