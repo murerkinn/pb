@@ -70,18 +70,13 @@ class PotModel extends EventEmitter {
         newValue = math.clamp(newValue, 0, 1);
         this.processValue(newValue, oldValue);
 
-        let event = {
-            type: PotModel.EventType.VALUE_CHANGED,
-            newValue: this.value,
-            oldValue
-        };
 
         if (this.param)
             this.param.value = this.value;
         else
             this.callback(this.value, oldValue);
 
-        this.emit(event);
+        this.emit(PotModel.EventType.VALUE_CHANGED, this.value, oldValue);
     }
 
     /**

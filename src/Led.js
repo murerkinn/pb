@@ -56,8 +56,8 @@ class Led extends Component {
      * Updates the user interface - glow - accordingly.
      */
     updateUi() {
-        if(this.isInDocument()) {
-            this.element_.classList.toggle('on', this.state);
+        if(this.rendered) {
+            this.el.classList.toggle('on', this.state);
         }
     }
 

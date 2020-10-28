@@ -38,6 +38,7 @@ class Connectable extends Component {
         this.setModel(new this.modelClass(context));
         this.createChildComponents();
         this.bindModelEvents();
+        this.components = undefined;
     }
 
     /**
@@ -49,7 +50,7 @@ class Connectable extends Component {
 
     /**
      * Gets the input buffer of a pedal.
-     *
+     * @override
      * @return {AudioNode} The input buffer of this component.
      */
     getInput() {
@@ -67,7 +68,7 @@ class Connectable extends Component {
 
     /**
      * Lets the pedal instance know who is connected to its input.
-     *
+     * @override
      * @param {IConnectable} prev Previous pedal whose output will connect to this pedal's input.
      */
     setPrev(prev) {
@@ -76,7 +77,7 @@ class Connectable extends Component {
 
     /**
      * Connects the output of this pedal to another pedal.
-     *
+     * @override
      * @param {IConnectable|Output} destination Next pedal where the output of this pedal will connect to.
      */
     connect(destination) {
@@ -86,6 +87,7 @@ class Connectable extends Component {
     
     /**
      * Disconnects the output of this pedal.
+     * @override
      */
     disconnect() {
         this.model.disconnect();

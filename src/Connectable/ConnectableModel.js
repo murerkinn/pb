@@ -39,6 +39,9 @@ class ConnectableModel extends Component {
 
         this.context = context;
 
+        this.prev = undefined;
+        this.next = undefined;
+
         /**
          * @type {Array.<!AudioNode>}
          */
@@ -64,7 +67,7 @@ class ConnectableModel extends Component {
 
     /**
      * Connects the output of the audio node of this model to another audio node.
-     * 
+     * @override
      * @param {AudioNode} destination Next audio node where the output of this model's node will connect to. 
      */
     connect(destination) {
@@ -76,7 +79,7 @@ class ConnectableModel extends Component {
 
     /**
      * Gets the input buffer of a pedal.
-     * 
+     * @override
      * @return {AudioNode} The input buffer of this component.
      */
     getInput() {
@@ -85,7 +88,7 @@ class ConnectableModel extends Component {
 
     /**
      * Gets the output buffer of a pedal.
-     * 
+     * @override
      * @return {AudioNode} The output buffer of this component.
      */
     getOutput() {
@@ -94,7 +97,7 @@ class ConnectableModel extends Component {
 
     /**
      * Lets the model know who is connected to its effects node.
-     * 
+     * @override
      * @param {AudioNode} prev Previous node who is connected to this model's effects node.
      */
     setPrev(prev) {
@@ -113,6 +116,7 @@ class ConnectableModel extends Component {
 
     /**
      * Disconnects the output buffer of this pedal.
+     * @override
      */
     disconnect() {
         this.outputBuffer.disconnect();

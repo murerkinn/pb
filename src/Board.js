@@ -17,9 +17,8 @@
 
 
 import Connectable from "./Connectable/Connectable";
-import Component from "./ui/Component";
 import { shadowMaker } from "./ShadowMaker";
-import helpers from "../lib/helpers";
+import dom from "../lib/dom";
 import Box from "./stomp/box/Box";
 
 class Board extends Connectable {
@@ -52,7 +51,8 @@ class Board extends Connectable {
    * @param {Array.<Box>} pedals Pedals.
    */
   addPedals(pedals) {
-    Component.prototype.addChildren.call(this, pedals);
+    // Component.prototype.addChildren.call(this, pedals);
+    this.addChildren(pedals);
   };
 
   /**
@@ -78,10 +78,10 @@ class Board extends Connectable {
     super.addChildAt(child, index, opt_render);
 
     if (this.getPedals().length)
-        helpers.removeNode(this.$(this.mappings.EMPTY)[0]);
+        dom.removeNode(this.$(this.mappings.EMPTY)[0]);
 
     this.routeInternal();
-    if (this.isInDocument()) this.doShadows();
+    if (this.rendered) this.doShadows();
   };
 
   /**
@@ -98,8 +98,8 @@ class Board extends Connectable {
   /**
    * @override
    */
-  removeChild(child, opt_unrender) {
-    let el = super.removeChild(child, opt_unrender);
+  remove_child(child, opt_unrender) {
+    let el = super.remove_child(child, opt_unrender);
 
     if (this.getPedals().length == 0)
         this.el.innerHTML = this.templates_empty();

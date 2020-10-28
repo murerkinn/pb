@@ -46,23 +46,12 @@ class Component extends ErsteComponent {
         this.model = model;
     }
 
-    addChildAt(child, index, opt_render) {
-        if (opt_render != false) opt_render = true;
-
-        // super.addChildAt(child, index, opt_render);
+    getChild(id) {
+        return this.children[id].content;
     }
 
-    /**
-     * Adds the specified children to this component, appending at the end.
-     * 
-     * @param {Array.<Component>} children The new child components.
-     * @param {boolean=} opt_render If false, the child component will not be rendered into the parent.
-     */
-    addChildren(children, opt_render) {
-        let that = this;
-        children.forEach((child) => {
-            that.addChild(child, opt_render);
-        }, this);
+    getChildIds() {
+        return this.children.map((child) => child.id);
     }
 
     /**
@@ -76,9 +65,42 @@ class Component extends ErsteComponent {
         return ids.map((id) => that.getChild(id))
     }
 
-    removeChild(child, opt_unrender) {
-        return;
+
+    addChild(child, opt_render=true) {
+        if(opt_render != false) {
+            opt_render = true;
+            this.el.appendChild(child);
+        }
+        this.children.push({id: child.id, content: child, render: opt_render}); 
     }
+
+    addChildAt(child, index, opt_render=true) {
+        this.children.splice(index, 0, {id: child.id, content: child, render: opt_render});
+        if (opt_render != false) {
+            opt_render = true;
+            this.el.appendChild(child);
+        }
+    }
+
+    /**
+     * Adds the specified children to this component, appending at the end.
+     * 
+     * @param {Array.<Component>} children The new child components.
+     * @param {boolean=} opt_render If false, the child component will not be rendered into the parent.
+     */
+    addChildren(children, opt_render=true) {
+        let that = this;
+        children.forEach((child) => {
+            that.addChild(child, opt_render);
+        }, this);
+    }
+
+
+    remove_child(child, opt_unrender) {
+        this.children.filter((item) => item.id !== child.id);
+        this.el.removeChild(child);
+    }
+
 
     disposeInternal() {
         super.dispose();
