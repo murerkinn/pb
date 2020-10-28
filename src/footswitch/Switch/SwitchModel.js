@@ -53,11 +53,7 @@ class SwitchModel extends EventEmitter {
         eventType = this.state ? SwitchModel.EventType.ON : 
             SwitchModel.EventType.OFF;
 
-        this.emit({
-            type: eventType,
-            newValue: this.state,
-            oldValue: oldState
-        })
+        this.emit(eventType, this.state, oldState)
     }
 
     /**
