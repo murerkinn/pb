@@ -41,7 +41,7 @@ class OverdriveModel extends BoxModel {
     
         this.waveShaper = this.context.createWaveShaper();
 
-        this.wsCurve = undefined;
+        this.wsCurve = null;
 
         this.effects = [
             this.waveShaper,

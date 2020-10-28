@@ -26,9 +26,9 @@ class Board extends Connectable {
     super(context);
     this.context = context;
 
-    this.output = undefined;
+    this.output = null;
 
-    this.mediaStreamDestination = undefined;
+    this.mediaStreamDestination = null;
 
     /**
      * Pedals of this board.
@@ -176,7 +176,7 @@ class Board extends Connectable {
   /**
    * Sets the media stream destination for this board. The output will be sent to the media stream destination, too.
    *
-   * @param {MediaStreamDestination} destination Media stream destination for RTC peer connections.
+   * @param {MediaStreamAudioDestinationNode} destination Media stream destination for RTC peer connections.
    */
   setMediaStreamDestination(destination) {
     this.mediaStreamDestination = destination;

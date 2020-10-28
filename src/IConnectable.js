@@ -48,7 +48,7 @@ class IConnectable {
     /**
      * Gets the main effects unit of a IConnectable, which is also the input node.
      * 
-     * @return {AudioNode} The effect node of the IConnectable.
+     * @return {!(AudioNode|AudioParam)} The effect node of the IConnectable.
      */
     getInput() {}
 }

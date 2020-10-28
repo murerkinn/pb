@@ -41,8 +41,8 @@ class Overdrive extends Box {
          */
         this.modelClass = OverdriveModel;
 
-        this.drivePot = undefined;
-        this.tonePot = undefined;
+        this.drivePot = null;
+        this.tonePot = null;
         
 
         /**

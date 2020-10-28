@@ -42,7 +42,7 @@ class Output {
     /**
      * Gets the destination node.
      * @override
-     * @return {AudioDestinationNode} The final node in the signal chain.
+     * @return {!(AudioNode|AudioParam)} The final node in the signal chain.
      */
     getInput() {
         return this.source;

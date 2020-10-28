@@ -34,10 +34,10 @@ import Board from "./Board";
 class Stage extends Component {
     constructor() {
         super();
-        this.input = undefined;
-        this.output = undefined;
-        this.board = undefined;
-        this.mediaStreamDestination = undefined;
+        this.input = null;
+        this.output = null;
+        this.board = null;
+        this.mediaStreamDestination = null;
         /**
          * The audio context for this stage.
          * 
@@ -103,7 +103,7 @@ class Stage extends Component {
     /**
      * Sets the media stream destination for this stage. It will be forwarded to this stage's board.
      * 
-     * @param {MediaStreamDestination} destination Media stream destination for RTC peer connections.
+     * @param {MediaStreamAudioDestinationNode} destination Media stream destination for RTC peer connections.
      */
     setMediaStreamDestination(destination) {
         this.mediaStreamDestination = destination;
@@ -120,7 +120,7 @@ class Stage extends Component {
         this.input.disconnect();
         this.input = new FileInput(this.context, url);
         this.route();
-        this.input.addEventListener('loaded', function() {
+        this.input.on('loaded', function() {
             this.input.play.bind(this.input, 0)}, false);
     }
 

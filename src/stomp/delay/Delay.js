@@ -41,8 +41,8 @@ class Delay extends Box {
          */
         this.modelClass = DelayModel;
 
-        this.delayTimerPot = undefined;
-        this.feedbackGainPot = undefined;
+        this.delayTimerPot = null;
+        this.feedbackGainPot = null;
         
 
         /**

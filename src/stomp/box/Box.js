@@ -32,9 +32,9 @@ class Box extends Connectable {
 
         this.modelClass = BoxModel;
 
-        this.volumePot = undefined;
-        this.bypassSwitch = undefined;
-        this.led = undefined;
+        this.volumePot = null;
+        this.bypassSwitch = null;
+        this.led = null;
 
         this.leds = [];
         this.switches = [];

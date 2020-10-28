@@ -31,7 +31,7 @@ class Component extends ErsteComponent {
 
     constructor() {
         super();
-        this.model = undefined;
+        this.model = null;
         this.children = [];
     }
 

@@ -47,14 +47,14 @@ class IConnectableModel {
     /**
      * Gets the input of a IConnectableModel.
      * 
-     * @return {AudioNode} The input of this IConnectableModel.
+     * @return {!(AudioNode|AudioParam)} The input of this IConnectableModel.
      */
     getInput() {}
 
     /**
      * Gets the output of a IConnectableModel.
      * 
-     * @return {AudioNode} The output of this IConnectableModel.
+     * @return {!(AudioNode|AudioParam)} The output of this IConnectableModel.
      */
     getOutput() {}
 }
