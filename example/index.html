@@ -45,18 +45,18 @@
 </div>
 
 <script type="text/javascript">
-    var pedalboard = window.pedalboard;
-    var stage = new pedalboard.Stage();
+    var p = window.pb;
+    var stage = new p.Stage();
     var ctx = stage.getContext();
 
-    var board = new Board(ctx);
+    var board = new pb.Board(ctx);
     stage.setBoard(board);
 
-    var overdrive = new Overdrive(ctx);
-    var reverb = new Reverb(ctx);
-    var volume = new Volume(ctx);
-    var cabinet = new Cabinet(ctx);
-    var delay = new Delay(ctx);
+    var overdrive = new pb.Overdrive(ctx);
+    var reverb = new pb.Reverb(ctx);
+    var volume = new pb.Volume(ctx);
+    var cabinet = new pb.Cabinet(ctx);
+    var delay = new pb.Delay(ctx);
 
     board.addPedals([overdrive, delay, reverb, volume, cabinet]);
 
@@ -87,7 +87,7 @@
 
     var playLineIn = function() {
         stage.stop();
-        stage.input = new StreamInput(stage.getContext());
+        stage.input = new pb.io.StreamInput(stage.getContext());
         stage.input.addEventListener('loaded', function() {
             stage.route();
         });
