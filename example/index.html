@@ -14,7 +14,7 @@
     <link href='http://fonts.googleapis.com/css?family=Damion' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Yellowtail' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Radley:400,400italic' rel='stylesheet' type='text/css'>
-    <script type="text/javascript" src="../dist/pedalboard.js"></script>
+    <script src="../dist/Bootstrapper.js"></script>
 
     <!-- For development comment out the line above and uncomment the lines below. -->
 
@@ -52,11 +52,11 @@
     var board = new pb.Board(ctx);
     stage.setBoard(board);
 
-    var overdrive = new pb.Overdrive(ctx);
-    var reverb = new pb.Reverb(ctx);
-    var volume = new pb.Volume(ctx);
-    var cabinet = new pb.Cabinet(ctx);
-    var delay = new pb.Delay(ctx);
+    var overdrive = new pb.stomp.Overdrive(ctx);
+    var reverb = new pb.stomp.Reverb(ctx);
+    var volume = new pb.stomp.Volume(ctx);
+    var cabinet = new pb.stomp.Cabinet(ctx);
+    var delay = new pb.stomp.Delay(ctx);
 
     board.addPedals([overdrive, delay, reverb, volume, cabinet]);
 

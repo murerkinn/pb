@@ -19,15 +19,24 @@
  * @fileoverview Bootstrapper for pb.
  */
 
-// import { Stage } from "./Stage";
-
 /**
  * Bootstrapper class includes things to do on startup.
  */
 class Bootstrapper {}
 
 window['AudioContext'] = window['AudioContext'] || window['webkitAudioContext'];
-navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;
-// || navigator.mozGetUserMedia;
+navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
 
-export default Bootstrapper;
+// export default Bootstrapper;
+export { default as Connectable } from './Connectable'
+export { default as footswitch } from './footswitch'
+export { default as io } from './io'
+export { default as pot } from './pot'
+export { default as stomp } from './stomp'
+export { default as Component } from './ui/Component'
+export { default as Board } from './Board'
+export { default as IConnectable } from './IConnectable'
+export { default as IConnectableModel } from './IConnectableModel'
+export { default as Led } from './Led'
+export { default as ShadowMaker } from './ShadowMaker'
+export { default as Stage } from './Stage'

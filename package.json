@@ -8,19 +8,21 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "gulp"
+    "test": "gulp",
+    "dev": "parcel src/Bootstrapper.js && gulp",
+    "build": "parcel build src/Bootstrapper.js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "del": "^6.0.0",
     "eslint": "^7.12.0",
-    "google-closure-compiler": "^20201006.0.0",
     "gulp": "^4.0.2",
     "gulp-clean-css": "^4.3.0",
     "gulp-concat-css": "^3.1.0",
     "gulp-sourcemaps": "^2.6.5",
-    "gulp-watch": "^5.0.1"
+    "gulp-watch": "^5.0.1",
+    "parcel-bundler": "^1.12.4"
   },
   "dependencies": {
     "erste": "^4.4.0"
