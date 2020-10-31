@@ -19,6 +19,18 @@
  * @fileoverview Bootstrapper for pb.
  */
 
+import Board from './Board'
+import IConnectable from './IConnectable'
+import IConnectableModel from './IConnectableModel'
+import Led from './Led'
+import Stage from './Stage'
+
+import { Connectable, ConnectableModel } from './Connectable/index'
+import { Momentary, MomentaryModel, Switch, SwitchModel, Toggle, ToggleModel } from './footswitch/index'
+import { FileInput, Input, Output, StreamInput } from './io/index'
+import { Linear, LinearModel, Log, LogModel, Pot, PotModel } from './pot/index'
+import { Box, BoxModel, Cabinet, CabinetModel, Conv, ConvModel, Delay, DelayModel, Overdrive, OverdriveModel, Reverb, ReverbModel, Volume, VolumeModel } from './stomp/index'
+import Component from './ui/Component'
 /**
  * Bootstrapper class includes things to do on startup.
  */
@@ -27,16 +39,68 @@ class Bootstrapper {}
 window['AudioContext'] = window['AudioContext'] || window['webkitAudioContext'];
 navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
 
+export default {
+    Board,
+    IConnectable,
+    IConnectableModel,
+    Led,
+    Stage,
+    connectable: {
+        Connectable,
+        ConnectableModel
+    },
+    footswitch: {
+        Momentary,
+        MomentaryModel,
+        Switch,
+        SwitchModel,
+        Toggle,
+        ToggleModel
+    },
+    io: {
+        FileInput,
+        Input,
+        Output,
+        StreamInput
+    },
+    pot: {
+        Linear,
+        LinearModel,
+        Log,
+        LogModel,
+        Pot,
+        PotModel
+    },
+    stomp: {
+        Box,
+        BoxModel,
+        Cabinet,
+        CabinetModel,
+        Conv,
+        ConvModel,
+        Delay,
+        DelayModel,
+        Overdrive,
+        OverdriveModel,
+        Reverb,
+        ReverbModel,
+        Volume,
+        VolumeModel
+    },
+    ui: {
+        Component
+    }
+};
+
 // export default Bootstrapper;
-export { default as Connectable } from './Connectable'
-export { default as footswitch } from './footswitch'
-export { default as io } from './io'
-export { default as pot } from './pot'
-export { default as stomp } from './stomp'
-export { default as Component } from './ui/Component'
-export { default as Board } from './Board'
-export { default as IConnectable } from './IConnectable'
-export { default as IConnectableModel } from './IConnectableModel'
-export { default as Led } from './Led'
-export { default as ShadowMaker } from './ShadowMaker'
-export { default as Stage } from './Stage'
+// export { default as Connectable } from './Connectable/index.js'
+// export { default as footswitch } from './footswitch/index.js'
+// export { default as io } from './io/index.js'
+// export { default as pot } from './pot/index.js'
+// export { default as stomp } from './stomp/index.js'
+// export { default as Component } from './ui/Component.js'
+// export { default as Board } from './Board.js'
+// export { default as IConnectable } from './IConnectable.js'
+// export { default as IConnectableModel } from './IConnectableModel.js'
+// export { default as Led } from './Led.js'
+// export { default as Stage } from './Stage.js'

@@ -1,2 +1,2 @@
-export { default as Connectable } from './Connectable'
-export { default as ConnectableModel } from './ConnectableModel'
+export { default as Connectable } from './Connectable.js'
+export { default as ConnectableModel } from './ConnectableModel.js'

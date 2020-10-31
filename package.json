@@ -9,8 +9,8 @@
   },
   "scripts": {
     "test": "gulp",
-    "dev": "parcel src/Bootstrapper.js && gulp",
-    "build": "parcel build src/Bootstrapper.js"
+    "dev": "parcel example/index.html",
+    "build": "parcel build example/index.html"
   },
   "author": "",
   "license": "ISC",

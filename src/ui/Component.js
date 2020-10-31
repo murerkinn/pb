@@ -69,7 +69,7 @@ class Component extends ErsteComponent {
     addChild(child, opt_render=true) {
         if(opt_render != false) {
             opt_render = true;
-            this.el.appendChild(child);
+            this.el.appendChild(child.toString());
         }
         this.children.push({id: child.id, content: child, render: opt_render}); 
     }
