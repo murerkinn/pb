@@ -67,18 +67,18 @@ class Component extends ErsteComponent {
 
 
     addChild(child, opt_render=true) {
+        this.children.push({id: child.id, content: child.el, render: opt_render}); 
         if(opt_render != false) {
             opt_render = true;
-            this.el.appendChild(child.toString());
+            this.el.appendChild(child.el)
         }
-        this.children.push({id: child.id, content: child, render: opt_render}); 
     }
 
     addChildAt(child, index, opt_render=true) {
-        this.children.splice(index, 0, {id: child.id, content: child, render: opt_render});
+        this.children.splice(index, 0, {id: child.id, content: child.el, render: opt_render});
         if (opt_render != false) {
             opt_render = true;
-            this.el.appendChild(child);
+            this.children[index].appendChild(child);
         }
     }
 
