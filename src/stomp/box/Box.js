@@ -27,7 +27,6 @@ import Led from "../../Led";
 import Linear from "../../pot/Linear/Linear";
 
 class Box extends Connectable {
-
     constructor(context) {
         super(context);
 
@@ -167,4 +166,5 @@ class Box extends Connectable {
 }
 
 Box.prototype.modelClass = BoxModel;
+
 export default Box;

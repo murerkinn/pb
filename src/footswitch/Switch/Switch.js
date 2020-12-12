@@ -30,9 +30,9 @@ import Component from "../../ui/Component";
  *
  */
 class Switch extends Component {
-  
+
   /**
-   * 
+   *
    * @param {string=} opt_name Name of the switch. Will be written under it.
    */
   constructor(opt_name) {

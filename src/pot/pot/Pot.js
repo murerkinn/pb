@@ -30,7 +30,7 @@ import Component from "../../ui/Component";
 class Pot extends Component {
 
     /**
-     * 
+     *
      * @param {AudioParam|Function} param Audio parameter this pot will adjust. Can be gain, etc. If more complex
      *     calculation is desired, one can pass a callback function which will be triggered each time the value of this pot
      *     changes.
