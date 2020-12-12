@@ -45,9 +45,8 @@ class Pot extends Component {
      */
     constructor(param, name, multiplier, opt_size, opt_min, opt_max, opt_default) {
         super();
-        this.setModel(new this.modelClass(param, name, multiplier || 1, opt_min, opt_max, opt_default));
 
-        this.modelClass = PotModel;
+        this.setModel(new this.modelClass(param, name, multiplier || 1, opt_min, opt_max, opt_default));
 
         this.angle = 260;
 
@@ -109,7 +108,8 @@ class Pot extends Component {
      * @override
      */
     bindModelEvents() {
-        this.model.addEventListener(PotModel.EventType.VALUE_CHANGED, this.updateUi, false);
+        this.on(PotModel.EventType.VALUE_CHANGED, this.updateUi, this.model)
+        // this.model.addEventListener(PotModel.EventType.VALUE_CHANGED, this.updateUi, false);
         // goog.events.listen(this.model, PotModel.EventType.VALUE_CHANGED, this.updateUi, false, this);
     }
 }
@@ -118,5 +118,7 @@ class Pot extends Component {
  * @enum {string} Pot size.
  */
 Pot.Size = { SMALL: 'small', REGULAR: 'regular' };
+
+Pot.prototype.modelClass = PotModel;
 
 export default Pot;

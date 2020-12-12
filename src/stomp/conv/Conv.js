@@ -40,11 +40,6 @@ class Conv extends Box {
         /**
          * @override
          */
-        this.modelClass = ConvModel;
-
-        /**
-         * @override
-         */
         this.name = 'convo';
 
         /**
@@ -62,5 +57,7 @@ class Conv extends Box {
         this.pots = [].concat(this.volumePot);
     }
 }
+
+Conv.prototype.modelClass = ConvModel;
 
 export default Conv;

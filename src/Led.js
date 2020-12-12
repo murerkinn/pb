@@ -85,7 +85,7 @@ class Led extends Component {
      */
     bindModelEvents() {
         if(this.footswitch) {
-            this.footswitch.model.addEventListener([SwitchModel.EventType.ON, SwitchModel.EventType.OFF], this.onSwitchValueChange, false);
+            this.on([SwitchModel.EventType.ON, SwitchModel.EventType.OFF], this.onSwitchValueChange, this.footswitch.model);
             // goog.events.listen(
             //     this.footswitch.model,
             //     [SwitchModel.EventType.ON, SwitchModel.EventType.OFF],

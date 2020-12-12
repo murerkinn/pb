@@ -37,8 +37,6 @@ class Switch extends Component {
    */
   constructor(opt_name) {
     super();
-    this.model = new this.modelClass(opt_name);
-    this.modelClass = SwitchModel;
     this.mappings = {
       BUTTON: ".button",
     };
@@ -92,5 +90,7 @@ class Switch extends Component {
     return this.model.name ? `<div class="name">${this.model.name}</div>` : "";
   }
 }
+
+Switch.prototype.modelClass = SwitchModel;
 
 export default Switch;

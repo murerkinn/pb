@@ -27,18 +27,9 @@ import Led from "../../Led";
 import Linear from "../../pot/Linear/Linear";
 
 class Box extends Connectable {
+
     constructor(context) {
         super(context);
-
-        this.modelClass = BoxModel;
-
-        this.volumePot = null;
-        this.bypassSwitch = null;
-        this.led = null;
-
-        this.leds = [];
-        this.switches = [];
-        this.pots = [];
 
         /**
          * DOM selector mappings.
@@ -87,12 +78,12 @@ class Box extends Connectable {
         this.switches.push(this.bypassSwitch);
 
         let that = this;
-        this.bypassSwitch.model.addEventListener(SwitchModel.EventType.ON, function() {
+        this.on(SwitchModel.EventType.ON, function() {
             this.model.routeInternal();
             setTimeout(() => {
                 that.model.routeInternal();
             }, 10);
-        }, false);
+        }, this.bypassSwitch.model);
     }
 
     /**
@@ -165,5 +156,13 @@ class Box extends Connectable {
         }, this);
     }
 }
+
+Box.prototype.modelClass = BoxModel;
+Box.prototype.pots = [];
+Box.prototype.leds = [];
+Box.prototype.switches = [];
+Box.prototype.volumePot = null;
+Box.prototype.bypassSwitch = null;
+Box.prototype.led = null;
 
 export default Box;

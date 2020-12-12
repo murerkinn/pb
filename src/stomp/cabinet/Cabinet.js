@@ -40,11 +40,6 @@ class Cabinet extends Conv {
         /**
          * @override
          */
-        this.modelClass = CabinetModel;
-
-        /**
-         * @override
-         */
         this.name = 'cabinet';
 
         /**
@@ -53,5 +48,7 @@ class Cabinet extends Conv {
         this.gainMultiplier = 10;
     }
 }
+
+Cabinet.prototype.modelClass = CabinetModel;
 
 export default Cabinet;

@@ -37,8 +37,8 @@ class Toggle extends Switch {
      */
     constructor(opt_name) {
         super(opt_name);
-        this.modelClass = ToggleModel;
     }
 }
+Toggle.prototype.modelClass = ToggleModel;
 
 export default Toggle;

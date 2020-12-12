@@ -34,7 +34,6 @@ class Connectable extends Component {
      */
     constructor(context) {
         super();
-        this.modelClass = ConnectableModel;
         this.setModel(new this.modelClass(context));
         this.createChildComponents();
         this.bindModelEvents();
@@ -93,5 +92,7 @@ class Connectable extends Component {
         this.model.disconnect();
     }
 }
+
+Connectable.prototype.modelClass = ConnectableModel
 
 export default Connectable;
