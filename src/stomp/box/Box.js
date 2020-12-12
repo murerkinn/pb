@@ -54,6 +54,15 @@ class Box extends Connectable {
      * @override
      */
     createChildComponents() {
+        super.createChildComponents();
+
+        this.pots = []
+        this.leds = []
+        this.switches = []
+        this.volumePot = null
+        this.bypassSwitch = null
+        this.led = null
+
         this.createPots();
         this.createSwitches();
     }
@@ -96,7 +105,7 @@ class Box extends Connectable {
 
     /**
      * Sets the level of the effect.
-     * 
+     *
      * @param {number} newLevel The new level of the effect.
      */
     setLevel(newLevel) {
@@ -158,11 +167,4 @@ class Box extends Connectable {
 }
 
 Box.prototype.modelClass = BoxModel;
-Box.prototype.pots = [];
-Box.prototype.leds = [];
-Box.prototype.switches = [];
-Box.prototype.volumePot = null;
-Box.prototype.bypassSwitch = null;
-Box.prototype.led = null;
-
 export default Box;
