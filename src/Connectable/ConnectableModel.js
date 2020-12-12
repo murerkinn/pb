@@ -28,15 +28,13 @@ import Component from "../ui/Component";
  * @implements {IConnectableModel}
  * @extends {Component}
  */
-class ConnectableModel extends Component {
-    
+class ConnectableModel {
+
     /**
-     * 
+     *
      * @param {AudioContext} context The context this component model will operate on.
      */
     constructor(context) {
-        super();
-
         this.context = context;
 
         this.prev = null;
