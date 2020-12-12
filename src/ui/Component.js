@@ -47,7 +47,7 @@ class Component extends ErsteComponent {
     }
 
     getChild(id) {
-        return this.children[id].content;
+        return this.children.find(c => c.id == id);
     }
 
     getChildIds() {
@@ -67,7 +67,7 @@ class Component extends ErsteComponent {
 
 
     addChild(child, opt_render=true) {
-        this.children.push({id: child.id, content: child.el, render: opt_render}); 
+        this.children.push(child);
         if(opt_render != false) {
             opt_render = true;
             this.el.appendChild(child.el)
@@ -75,10 +75,10 @@ class Component extends ErsteComponent {
     }
 
     addChildAt(child, index, opt_render=true) {
-        this.children.splice(index, 0, {id: child.id, content: child.el, render: opt_render});
+        this.children.splice(index, 0, child);
         if (opt_render != false) {
             opt_render = true;
-            this.children[index].appendChild(child);
+            this.el.insertAdjacentElement(index, child.el)
         }
     }
 
