@@ -24,7 +24,7 @@ import {Component as ErsteComponent} from 'erste';
 
 /**
  * Component is from ersteJS.
- * 
+ *
  * @extends {ErsteComponent}
  */
 class Component extends ErsteComponent {
@@ -84,7 +84,7 @@ class Component extends ErsteComponent {
 
     /**
      * Adds the specified children to this component, appending at the end.
-     * 
+     *
      * @param {Array.<Component>} children The new child components.
      * @param {boolean=} opt_render If false, the child component will not be rendered into the parent.
      */
