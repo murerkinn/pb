@@ -76,8 +76,8 @@ class Pot extends Component {
     updateUi() {
         if(this.rendered) {
             let newStyle = `rotateZ(${this.model.getNormalizedValue() * this.angle}deg)`;
-            this.$(this.mappings.KNOB)[0].style['-webkit-transform'] = newStyle;
-            this.$(this.mappings.KNOB)[0].style['transform'] = newStyle;
+            this.$(this.mappings.KNOB).style['-webkit-transform'] = newStyle;
+            this.$(this.mappings.KNOB).style['transform'] = newStyle;
         }
     }
 

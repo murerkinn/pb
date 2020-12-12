@@ -78,7 +78,7 @@ class Board extends Connectable {
     super.addChildAt(child, index, opt_render);
 
     if (this.getPedals().length)
-        dom.removeNode(this.$(this.mappings.EMPTY)[0]);
+        dom.removeNode(this.$(this.mappings.EMPTY));
 
     this.routeInternal();
     if (this.rendered) this.doShadows();

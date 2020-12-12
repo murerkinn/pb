@@ -144,15 +144,15 @@ class Box extends Connectable {
         super.onAfterRender();
 
         this.pots.forEach((pot) => {
-            pot.render(this.$(this.mappings.POTS)[0]);
+            pot.render(this.$(this.mappings.POTS));
         }, this);
 
         this.switches.forEach((sw) => {
-            sw.render(this.$(this.mappings.SWITCHES)[0]);
+            sw.render(this.$(this.mappings.SWITCHES));
         }, this);
 
         this.leds.forEach((led) => {
-            led.render(this.$(this.mappings.LEDS)[0]);
+            led.render(this.$(this.mappings.LEDS));
         }, this);
     }
 }
