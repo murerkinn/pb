@@ -42,12 +42,10 @@ class Switch extends Component {
     };
 
     this.setModel(new this.modelClass(opt_name))
+  }
 
-    // this.events = {
-    //   [ComponentManager.events['mousedown']]: {
-    //     [this.mappings.BUTTON]: this.toggle,
-    //   },
-    // };
+  ['click .button']() {
+    this.toggle()
   }
 
   /**
