@@ -119,10 +119,10 @@ class Box extends Connectable {
 
         return `
             <div class="box ${className}">
-                <div class="pots"></div>
+                <div class="pots">${this.pots.join('')}</div>
                 <div class="name">${this.name}</div>
-                <div class="leds"></div>
-                <div class="switches"></div>
+                <div class="leds">${this.leds.join('')}</div>
+                <div class="switches">${this.switches.join('')}</div>
                 ${/*<div class="obg"></div>
                 <div class="bg"></div>
                 <div class="bgs">
@@ -142,26 +142,6 @@ class Box extends Connectable {
                     <div class="bg"></div>
                 </div> */''}
             </div>`;
-    }
-
-    /**
-     * This method is called after the stomp box is appended to DOM. It then renders all its potentiometers.
-     * @override
-     */
-    onAfterRender() {
-        super.onAfterRender();
-
-        this.pots.forEach((pot) => {
-            pot.render(this.$(this.mappings.POTS));
-        }, this);
-
-        this.switches.forEach((sw) => {
-            sw.render(this.$(this.mappings.SWITCHES));
-        }, this);
-
-        this.leds.forEach((led) => {
-            led.render(this.$(this.mappings.LEDS));
-        }, this);
     }
 }
 
