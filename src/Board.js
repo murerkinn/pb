@@ -60,9 +60,9 @@ class Board extends Connectable {
    */
   doShadows() {
     this.getPedals().forEach((pedal) => {
-      // shadowMaker(pedal.el, 40, 0.5, 0.7);
+      shadowMaker(pedal.el, 40, 0.5, 0.7);
       pedal.pots.forEach((pot) => {
-        // shadowMaker(pot.$(pot.mappings.KNOB_HOLDER)[0], 10, 0.5, 4);
+        shadowMaker(pot.$(pot.mappings.KNOB_HOLDER), 10, 0.5, 4);
       });
     });
   };
@@ -111,8 +111,8 @@ class Board extends Connectable {
   /**
    * @override
    */
-  onAfterRender() {
-    super.onAfterRender();
+  onAfterRenderAsync() {
+    super.onAfterRenderAsync();
     this.doShadows();
   };
 
