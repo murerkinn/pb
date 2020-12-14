@@ -57,8 +57,30 @@ class Pot extends Component {
             KNOB: '.knob',
             KNOB_HOLDER: '.knobHolder'
         };
+
         this.size = opt_size || Pot.Size.REGULAR;
         this.bindModelEvents();
+    }
+
+    ['mousedown .knob'](e) {
+        this.flag = true
+        this.oldY = e.clientY
+
+        var mousemove = (e) => {
+            if (this.flag) {
+                this.setValue(this.model.getNormalizedValue() - (e.clientY - this.oldY) / 100)
+                this.oldY = e.clientY
+            }
+        }
+
+        var mouseup = () => {
+            this.flag = false
+            document.body.removeEventListener('mousemove', mousemove, false)
+            document.body.removeEventListener('mouseup', mouseup, false)
+        }
+
+        document.body.addEventListener('mouseup', mouseup, false)
+        document.body.addEventListener('mousemove', mousemove, false)
     }
 
     /**
@@ -108,9 +130,7 @@ class Pot extends Component {
      * @override
      */
     bindModelEvents() {
-        this.on(PotModel.EventType.VALUE_CHANGED, this.updateUi, this.model)
-        // this.model.addEventListener(PotModel.EventType.VALUE_CHANGED, this.updateUi, false);
-        // goog.events.listen(this.model, PotModel.EventType.VALUE_CHANGED, this.updateUi, false, this);
+        this.model.on(PotModel.EventType.VALUE_CHANGED, this.updateUi, this)
     }
 }
 
