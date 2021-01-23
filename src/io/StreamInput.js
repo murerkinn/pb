@@ -37,8 +37,7 @@ class StreamInput extends Input {
     constructor(context) {
         super(context);
         var that = this;
-        var getUserMedia = navigator.getUserMedia;
-        getUserMedia({
+        navigator.getUserMedia({
             'audio': {
                 'mandatory': {
                     'echoCancellation': false,
