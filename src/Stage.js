@@ -120,8 +120,9 @@ class Stage extends Component {
         this.input.disconnect();
         this.input = new FileInput(this.context, url);
         this.route();
-        this.input.on('loaded', function() {
-            this.input.play.bind(this.input, 0)}, false);
+        this.input.on('loaded', () => {
+            this.input.play(0)
+        });
     }
 
     /**
