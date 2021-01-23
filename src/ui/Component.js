@@ -66,19 +66,16 @@ class Component extends ErsteComponent {
     }
 
 
-    addChild(child, opt_render=true) {
-        this.children.push(child);
-        if(opt_render != false) {
-            opt_render = true;
-            this.el.appendChild(child.el)
-        }
+    addChild(child, opt_render = true) {
+        this.addChildAt(child, this.children.length, opt_render)
     }
 
-    addChildAt(child, index, opt_render=true) {
+    addChildAt(child, index, opt_render = true) {
         this.children.splice(index, 0, child);
         if (opt_render != false) {
             opt_render = true;
-            this.el.insertAdjacentElement(index, child.el)
+            if (index == 0) this.el.appendChild(child.el)
+            else this.children[index - 1].el.insertAdjacentElement('afterend', child.el)
         }
     }
 
