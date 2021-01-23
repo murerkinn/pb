@@ -40,9 +40,7 @@ var lb = document.getElementsByClassName('linein')[0]
 var playLineIn = function () {
   stage.stop()
   stage.input = new pb.io.StreamInput(stage.getContext())
-  stage.input.addEventListener('loaded', function () {
-    stage.route()
-  })
+  stage.input.on('loaded', () => stage.route())
 }
 
 lb.addEventListener(
