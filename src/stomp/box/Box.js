@@ -85,13 +85,12 @@ class Box extends Connectable {
         this.leds.push(this.led);
         this.switches.push(this.bypassSwitch);
 
-        let that = this;
-        this.on(SwitchModel.EventType.ON, function() {
+        this.bypassSwitch.model.on(SwitchModel.EventType.ON, () => {
             this.model.routeInternal();
             setTimeout(() => {
-                that.model.routeInternal();
+                this.model.routeInternal();
             }, 10);
-        }, this.bypassSwitch.model);
+        });
     }
 
     /**
