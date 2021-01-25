@@ -29,6 +29,7 @@
  */
 
 import ConvModel from "../conv/ConvModel";
+import iRPath from "url:../../../example/audio/ir/reverb/pcm90cleanplate.wav";
 
 /**
  * Component model for reverb pedal.
@@ -37,16 +38,14 @@ import ConvModel from "../conv/ConvModel";
  */
 class ReverbModel extends ConvModel {
     /**
-     * 
+     *
      * @param {AudioContext} context The context this component model will operate on.
      */
     constructor(context) {
         super(context);
-        /**
-         * @override
-         */
-        this.iRPath = 'audio/ir/reverb/pcm90cleanplate.wav';
     }
 }
+
+ReverbModel.prototype.iRPath = iRPath;
 
 export default ReverbModel;
