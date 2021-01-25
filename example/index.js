@@ -1,4 +1,9 @@
 import pb from '../src/Bootstrapper'
+import sample1 from "url:./audio/samples/sample1.mp3"
+import sample2 from "url:./audio/samples/sample2.mp3"
+import sample3 from "url:./audio/samples/sample3.mp3"
+import sample4 from "url:./audio/samples/sample4.mp3"
+import sample5 from "url:./audio/samples/sample5.mp3"
 
 function init() {
 
@@ -32,6 +37,8 @@ function init() {
 
        */
   var state = false
+
+  var sampleAudios = [sample1, sample2, sample3, sample4, sample5]
 
   var cb = document.getElementById('controlButton')
   var samples = document.getElementsByClassName('sample')
@@ -74,7 +81,7 @@ function init() {
       return
     }
     settings[sampleNo - 1] && settings[sampleNo - 1]()
-    stage.play('audio/samples/sample' + sampleNo + '.mp3')
+    stage.play(sampleAudios[sampleNo - 1])
   }
 
   var cBHandler = function () {
