@@ -24,6 +24,7 @@
  */
 
 import ConvModel from "../conv/ConvModel";
+import iRPath from "url:../../../example/audio/ir/speaker/AK-SPKRS_VinUs_002.wav";
 
 /**
  * Component model for Cabinet pedal.
@@ -32,17 +33,14 @@ import ConvModel from "../conv/ConvModel";
  */
 class CabinetModel extends ConvModel {
     /**
-     * 
+     *
      * @param {AudioContext} context The context this component model will operate on.
      */
     constructor(context) {
         super(context);
-        
-        /**
-         * @override
-         */
-        this.iRPath = 'audio/ir/speaker/AK-SPKRS_VinUs_002.wav';
     }
 }
+
+CabinetModel.prototype.iRPath = iRPath;
 
 export default CabinetModel;
