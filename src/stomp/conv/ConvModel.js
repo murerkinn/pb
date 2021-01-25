@@ -27,13 +27,13 @@ import BoxModel from "../box/BoxModel"
 
 /**
  * Component model for conv pedal.
- * 
+ *
  * @extends {BoxModel}
  */
 class ConvModel extends BoxModel {
 
     /**
-     * 
+     *
      * @param {AudioContext} context The context this component model will operate on.
      */
     constructor(context) {
@@ -42,13 +42,6 @@ class ConvModel extends BoxModel {
         this.convGain = this.context.createGain();
         this.effects = [this.conv, this.convGain];
 
-        /**
-         * The path of the impulse response of this conv.
-         * 
-         * @type {string}
-         */
-        this.iRPath;
-        
         this.iRPath && this.loadIR();
     }
 
@@ -78,5 +71,12 @@ class ConvModel extends BoxModel {
         request.send();
     }
 }
+
+/**
+ * The path of the impulse response of this conv.
+ *
+ * @type {string}
+ */
+ConvModel.prototype.iRPath;
 
 export default ConvModel;
