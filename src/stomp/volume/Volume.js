@@ -35,10 +35,6 @@ class Volume extends Box {
     constructor(context) {
         super(context);
         this.volumePot.setValue(1);
-        /**
-         * @override
-         */
-        this.modelClass = VolumeModel;
 
         /**
          * @override
@@ -46,5 +42,7 @@ class Volume extends Box {
         this.name = 'volume';
     }
 }
+
+Volume.prototype.modelClass = VolumeModel;
 
 export default Volume;

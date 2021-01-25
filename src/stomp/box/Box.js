@@ -30,16 +30,6 @@ class Box extends Connectable {
     constructor(context) {
         super(context);
 
-        this.modelClass = BoxModel;
-
-        this.volumePot = null;
-        this.bypassSwitch = null;
-        this.led = null;
-
-        this.leds = [];
-        this.switches = [];
-        this.pots = [];
-
         /**
          * DOM selector mappings.
          *
@@ -63,6 +53,15 @@ class Box extends Connectable {
      * @override
      */
     createChildComponents() {
+        super.createChildComponents();
+
+        this.pots = []
+        this.leds = []
+        this.switches = []
+        this.volumePot = null
+        this.bypassSwitch = null
+        this.led = null
+
         this.createPots();
         this.createSwitches();
     }
@@ -86,13 +85,12 @@ class Box extends Connectable {
         this.leds.push(this.led);
         this.switches.push(this.bypassSwitch);
 
-        let that = this;
-        this.bypassSwitch.model.addEventListener(SwitchModel.EventType.ON, function() {
+        this.bypassSwitch.model.on(SwitchModel.EventType.ON, () => {
             this.model.routeInternal();
             setTimeout(() => {
-                that.model.routeInternal();
+                this.model.routeInternal();
             }, 10);
-        }, false);
+        });
     }
 
     /**
@@ -105,7 +103,7 @@ class Box extends Connectable {
 
     /**
      * Sets the level of the effect.
-     * 
+     *
      * @param {number} newLevel The new level of the effect.
      */
     setLevel(newLevel) {
@@ -120,10 +118,10 @@ class Box extends Connectable {
 
         return `
             <div class="box ${className}">
-                <div class="pots"></div>
+                <div class="pots">${this.pots.join('')}</div>
                 <div class="name">${this.name}</div>
-                <div class="leds"></div>
-                <div class="switches"></div>
+                <div class="leds">${this.leds.join('')}</div>
+                <div class="switches">${this.switches.join('')}</div>
                 ${/*<div class="obg"></div>
                 <div class="bg"></div>
                 <div class="bgs">
@@ -144,26 +142,8 @@ class Box extends Connectable {
                 </div> */''}
             </div>`;
     }
-
-    /**
-     * This method is called after the stomp box is appended to DOM. It then renders all its potentiometers.
-     * @override
-     */
-    onAfterRender() {
-        super.onAfterRender();
-
-        this.pots.forEach((pot) => {
-            pot.render(this.$(this.mappings.POTS)[0]);
-        }, this);
-
-        this.switches.forEach((sw) => {
-            sw.render(this.$(this.mappings.SWITCHES)[0]);
-        }, this);
-
-        this.leds.forEach((led) => {
-            led.render(this.$(this.mappings.LEDS)[0]);
-        }, this);
-    }
 }
+
+Box.prototype.modelClass = BoxModel;
 
 export default Box;

@@ -28,7 +28,7 @@ import Pot from "../pot/Pot";
  *
  * @extends {Pot}
  */
-export default class Linear extends Pot {
+class Linear extends Pot {
     /**
      * 
      * @param {AudioParam|Function} param Audio parameter this pot will adjust. Can be gain, etc. If more complex
@@ -45,6 +45,9 @@ export default class Linear extends Pot {
      */
     constructor(param, name, multiplier, opt_size, opt_min, opt_max, opt_default) {
         super(param, name, multiplier, opt_size, opt_min, opt_max, opt_default);
-        this.modelClass = LinearModel;
     }
 }
+
+Linear.prototype.modelClass = LinearModel;
+
+export default Linear

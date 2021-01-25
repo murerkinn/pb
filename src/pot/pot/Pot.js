@@ -30,7 +30,7 @@ import Component from "../../ui/Component";
 class Pot extends Component {
 
     /**
-     * 
+     *
      * @param {AudioParam|Function} param Audio parameter this pot will adjust. Can be gain, etc. If more complex
      *     calculation is desired, one can pass a callback function which will be triggered each time the value of this pot
      *     changes.
@@ -45,9 +45,8 @@ class Pot extends Component {
      */
     constructor(param, name, multiplier, opt_size, opt_min, opt_max, opt_default) {
         super();
-        this.setModel(new this.modelClass(param, name, multiplier || 1, opt_min, opt_max, opt_default));
 
-        this.modelClass = PotModel;
+        this.setModel(new this.modelClass(param, name, multiplier || 1, opt_min, opt_max, opt_default));
 
         this.angle = 260;
 
@@ -58,8 +57,30 @@ class Pot extends Component {
             KNOB: '.knob',
             KNOB_HOLDER: '.knobHolder'
         };
+
         this.size = opt_size || Pot.Size.REGULAR;
         this.bindModelEvents();
+    }
+
+    ['mousedown .knob'](e) {
+        this.flag = true
+        this.oldY = e.clientY
+
+        var mousemove = (e) => {
+            if (this.flag) {
+                this.setValue(this.model.getNormalizedValue() - (e.clientY - this.oldY) / 100)
+                this.oldY = e.clientY
+            }
+        }
+
+        var mouseup = () => {
+            this.flag = false
+            document.body.removeEventListener('mousemove', mousemove, false)
+            document.body.removeEventListener('mouseup', mouseup, false)
+        }
+
+        document.body.addEventListener('mouseup', mouseup, false)
+        document.body.addEventListener('mousemove', mousemove, false)
     }
 
     /**
@@ -77,8 +98,8 @@ class Pot extends Component {
     updateUi() {
         if(this.rendered) {
             let newStyle = `rotateZ(${this.model.getNormalizedValue() * this.angle}deg)`;
-            this.$(this.mappings.KNOB)[0].style['-webkit-transform'] = newStyle;
-            this.$(this.mappings.KNOB)[0].style['transform'] = newStyle;
+            this.$(this.mappings.KNOB).style['-webkit-transform'] = newStyle;
+            this.$(this.mappings.KNOB).style['transform'] = newStyle;
         }
     }
 
@@ -109,8 +130,7 @@ class Pot extends Component {
      * @override
      */
     bindModelEvents() {
-        this.model.addEventListener(PotModel.EventType.VALUE_CHANGED, this.updateUi, false);
-        // goog.events.listen(this.model, PotModel.EventType.VALUE_CHANGED, this.updateUi, false, this);
+        this.model.on(PotModel.EventType.VALUE_CHANGED, this.updateUi, this)
     }
 }
 
@@ -118,5 +138,7 @@ class Pot extends Component {
  * @enum {string} Pot size.
  */
 Pot.Size = { SMALL: 'small', REGULAR: 'regular' };
+
+Pot.prototype.modelClass = PotModel;
 
 export default Pot;

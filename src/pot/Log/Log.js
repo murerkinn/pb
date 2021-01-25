@@ -27,7 +27,7 @@ import LogModel from "./LogModel";
  *
  * @extends {Pot}
  */
-export default class Log extends Pot {
+class Log extends Pot {
     /**
      * 
      * @param {AudioParam|Function} param Audio parameter this pot will adjust. Can be gain, etc. If more complex
@@ -44,6 +44,9 @@ export default class Log extends Pot {
      */
     constructor(param, name, multiplier, opt_size, opt_min, opt_max, opt_default) {
         super(param, name, multiplier, opt_size, opt_min, opt_max, opt_default);
-        this.modelClass = LogModel;
     }
 }
+
+Log.prototype.modelClass = LogModel
+
+export default Log;

@@ -30,20 +30,13 @@ import Log from "../../pot/Log/Log";
  * @extends {Box}
  */
 class Overdrive extends Box {
+
     /**
      * 
      * @param {AudioContext} context Audio context the pedal will work on.
      */
     constructor(context) {
         super(context);
-        /**
-         * @override
-         */
-        this.modelClass = OverdriveModel;
-
-        this.drivePot = null;
-        this.tonePot = null;
-        
 
         /**
          * @override
@@ -84,5 +77,9 @@ class Overdrive extends Box {
         this.tonePot.setValue(newValue);
     };
 }
+
+Overdrive.prototype.modelClass = OverdriveModel;
+Overdrive.prototype.drivePot = null;
+Overdrive.prototype.tonePot = null;
 
 export default Overdrive;

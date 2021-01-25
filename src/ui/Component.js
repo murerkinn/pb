@@ -24,7 +24,7 @@ import {Component as ErsteComponent} from 'erste';
 
 /**
  * Component is from ersteJS.
- * 
+ *
  * @extends {ErsteComponent}
  */
 class Component extends ErsteComponent {
@@ -47,7 +47,7 @@ class Component extends ErsteComponent {
     }
 
     getChild(id) {
-        return this.children[id].content;
+        return this.children.find(c => c.id == id);
     }
 
     getChildIds() {
@@ -66,25 +66,22 @@ class Component extends ErsteComponent {
     }
 
 
-    addChild(child, opt_render=true) {
-        if(opt_render != false) {
-            opt_render = true;
-            this.el.appendChild(child.toString());
-        }
-        this.children.push({id: child.id, content: child, render: opt_render}); 
+    addChild(child, opt_render = true) {
+        this.addChildAt(child, this.children.length, opt_render)
     }
 
-    addChildAt(child, index, opt_render=true) {
-        this.children.splice(index, 0, {id: child.id, content: child, render: opt_render});
+    addChildAt(child, index, opt_render = true) {
+        this.children.splice(index, 0, child);
         if (opt_render != false) {
             opt_render = true;
-            this.el.appendChild(child);
+            if (index == 0) this.el.appendChild(child.el)
+            else this.children[index - 1].el.insertAdjacentElement('afterend', child.el)
         }
     }
 
     /**
      * Adds the specified children to this component, appending at the end.
-     * 
+     *
      * @param {Array.<Component>} children The new child components.
      * @param {boolean=} opt_render If false, the child component will not be rendered into the parent.
      */

@@ -36,14 +36,6 @@ class Delay extends Box {
      */
     constructor(context) {
         super(context);
-        /**
-         * @override
-         */
-        this.modelClass = DelayModel;
-
-        this.delayTimerPot = null;
-        this.feedbackGainPot = null;
-        
 
         /**
          * @override
@@ -84,5 +76,9 @@ class Delay extends Box {
         this.feedbackGainPot.setValue(newGain);
     };
 }
+
+Delay.prototype.modelClass = DelayModel;
+Delay.prototype.delayTimerPot = null;
+Delay.prototype.feedbackGainPot = null;
 
 export default Delay;

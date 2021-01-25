@@ -1,3 +1,6 @@
 node_modules
 .history
 .DS_Store
+.cache
+dist
+.parcel-cache

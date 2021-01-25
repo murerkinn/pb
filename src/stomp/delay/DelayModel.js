@@ -27,13 +27,13 @@ import BoxModel from "../box/BoxModel";
  */
 class DelayModel extends BoxModel {
     /**
-     * 
+     *
      * @param {AudioContext} context The context this component model will operate on.
      */
     constructor(context) {
         super(context);
 
-        this.delayer = this.context.createDelay();
+        this.delayer = this.context.createDelay(5.0);
         this.delayer.delayTime.value = 0.4;
 
         this.feedbackGain = this.context.createGain();

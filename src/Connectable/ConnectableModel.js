@@ -24,19 +24,17 @@ import Component from "../ui/Component";
 
 /**
  * Component model for base connectables.
- * 
+ *
  * @implements {IConnectableModel}
  * @extends {Component}
  */
-class ConnectableModel extends Component {
-    
+class ConnectableModel {
+
     /**
-     * 
+     *
      * @param {AudioContext} context The context this component model will operate on.
      */
     constructor(context) {
-        super();
-
         this.context = context;
 
         this.prev = null;
@@ -46,7 +44,7 @@ class ConnectableModel extends Component {
          * @type {Array.<!AudioNode>}
          */
         this.chain = [];
-            
+
         /**
          * @type {Array.<AudioNode>}
          */
@@ -57,7 +55,7 @@ class ConnectableModel extends Component {
          * @protected
          */
         this.inputBuffer = this.context.createGain();
-        
+
         /**
          * @type {!GainNode}
          * @protected
@@ -68,7 +66,7 @@ class ConnectableModel extends Component {
     /**
      * Connects the output of the audio node of this model to another audio node.
      * @override
-     * @param {AudioNode} destination Next audio node where the output of this model's node will connect to. 
+     * @param {AudioNode} destination Next audio node where the output of this model's node will connect to.
      */
     connect(destination) {
         this.next = destination;

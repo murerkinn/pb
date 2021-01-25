@@ -30,24 +30,22 @@ import Component from "../../ui/Component";
  *
  */
 class Switch extends Component {
-  
+
   /**
-   * 
+   *
    * @param {string=} opt_name Name of the switch. Will be written under it.
    */
   constructor(opt_name) {
     super();
-    this.model = new this.modelClass(opt_name);
-    this.modelClass = SwitchModel;
     this.mappings = {
       BUTTON: ".button",
     };
 
-    // this.events = {
-    //   [ComponentManager.events['mousedown']]: {
-    //     [this.mappings.BUTTON]: this.toggle,
-    //   },
-    // };
+    this.setModel(new this.modelClass(opt_name))
+  }
+
+  ['click .button']() {
+    this.toggle()
   }
 
   /**
@@ -92,5 +90,7 @@ class Switch extends Component {
     return this.model.name ? `<div class="name">${this.model.name}</div>` : "";
   }
 }
+
+Switch.prototype.modelClass = SwitchModel;
 
 export default Switch;

@@ -34,10 +34,6 @@ class Reverb extends Conv {
      */
     constructor(context) {
         super(context);
-        /**
-         * @override
-         */
-        this.modelClass = ReverbModel;
 
         /**
          * @override
@@ -50,5 +46,7 @@ class Reverb extends Conv {
         this.gainMultiplier = 1;
     }
 }
+
+Reverb.prototype.modelClass = ReverbModel;
 
 export default Reverb;

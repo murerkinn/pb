@@ -31,7 +31,7 @@ import Switch from "./footswitch/Switch/Switch";
  */
 class Led extends Component {
     /**
-     * 
+     *
      * @param {Switch=} opt_footswitch Footswitch this LED will follow.
      * @param {string=} opt_name Name of the LED. Will be written under it.
      */
@@ -85,24 +85,18 @@ class Led extends Component {
      */
     bindModelEvents() {
         if(this.footswitch) {
-            this.footswitch.model.addEventListener([SwitchModel.EventType.ON, SwitchModel.EventType.OFF], this.onSwitchValueChange, false);
-            // goog.events.listen(
-            //     this.footswitch.model,
-            //     [SwitchModel.EventType.ON, SwitchModel.EventType.OFF],
-            //     this.onSwitchValueChange,
-            //     false,
-            //     this
-            // );
+            this.footswitch.model.on(SwitchModel.EventType.ON, this.onSwitchValueChange, this);
+            this.footswitch.model.on(SwitchModel.EventType.OFF, this.onSwitchValueChange, this);
         }
     }
 
     /**
      * Acts on an off or on event dispatched from this LED's footswitch. Updates the UI accordingly.
-     * 
-     * @param {{newValue: boolean}} e ON / OFF event of the switch.
+     *
+     * @param boolean e ON / OFF event of the switch.
      */
     onSwitchValueChange(e) {
-        this.state = e.newValue;
+        this.state = e;
         this.updateUi();
     }
 }

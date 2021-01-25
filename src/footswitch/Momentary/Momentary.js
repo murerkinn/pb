@@ -39,7 +39,6 @@ class Momentary extends Switch {
         super(opt_name);
 
         this.state = false;
-        this.modelClass = MomentaryModel;
         // this.events = {
         //     [ComponentManager.events['mousedown']]: {
         //         [this.mappings.BUTTON]: this.toggle
@@ -47,5 +46,7 @@ class Momentary extends Switch {
         // }
     }   
 }
+
+Momentary.prototype.modelClass = MomentaryModel;
 
 export default Momentary;
