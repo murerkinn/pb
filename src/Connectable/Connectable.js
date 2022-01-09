@@ -49,7 +49,7 @@ class Connectable extends Component {
 
     /**
      * Gets the input buffer of a pedal.
-     * @return {!(AudioNode|AudioParam)} The input buffer of this component.
+     * @return {!(AudioNode)} The input buffer of this component.
      */
     getInput() {
         return this.model.getInput();
@@ -57,7 +57,7 @@ class Connectable extends Component {
 
     /**
      * Gets the output buffer of a pedal.
-     * @return {!(AudioNode|AudioParam)} The output buffer of this component.
+     * @return {!(AudioNode)} The output buffer of this component.
      */
     getOutput() {
         return this.model.getOutput();
