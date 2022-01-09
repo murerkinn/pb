@@ -31,10 +31,7 @@ import { FileInput, Input, Output, StreamInput } from './io/index'
 import { Linear, LinearModel, Log, LogModel, Pot, PotModel } from './pot/index'
 import { Box, BoxModel, Cabinet, CabinetModel, Conv, ConvModel, Delay, DelayModel, Overdrive, OverdriveModel, Reverb, ReverbModel, Volume, VolumeModel } from './stomp/index'
 import Component from './ui/Component'
-/**
- * Bootstrapper class includes things to do on startup.
- */
-class Bootstrapper {}
+
 
 window['AudioContext'] = window['AudioContext'] || window['webkitAudioContext'];
 
