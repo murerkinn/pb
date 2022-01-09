@@ -36,26 +36,26 @@ class StreamInput extends Input {
      */
     constructor(context) {
         super(context);
-        var that = this;
-        navigator.getUserMedia({
+
+        const that = this;
+
+        navigator.mediaDevices.getUserMedia({
             'audio': {
-                'mandatory': {
-                    'echoCancellation': false,
-                    'googEchoCancellation': false,
-                    'googEchoCancellation2': false,
-                    'googAutoGainControl': false,
-                    'googNoiseSuppression': false,
-                    'googNoiseSuppression2': false
-                    //'googHighpassFilter': false // this is currently buggy.
-                }
+                'echoCancellation': false,
+                'autoGainControl': false,
+                'noiseSuppression': false,
             }
-        }, (stream) => {
+        }).then((stream) => {
             that.disconnect();
+
+            // TODO: Fix the type issue below
+            // @ts-ignore
             that.source = context.createMediaStreamSource(stream);
+
             that.emit('loaded');
-        }, (err) => {
+        }).catch((err) => {
             throw new Error(err);
-        });
+        })
     }
 
     /**
