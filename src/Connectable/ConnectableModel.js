@@ -28,13 +28,15 @@ import Component from "../ui/Component";
  * @implements {IConnectableModel}
  * @extends {Component}
  */
-class ConnectableModel {
+class ConnectableModel extends Component {
 
     /**
      *
      * @param {AudioContext} context The context this component model will operate on.
      */
     constructor(context) {
+        super()
+
         this.context = context;
 
         this.prev = null;
@@ -65,7 +67,6 @@ class ConnectableModel {
 
     /**
      * Connects the output of the audio node of this model to another audio node.
-     * @override
      * @param {AudioNode} destination Next audio node where the output of this model's node will connect to.
      */
     connect(destination) {
@@ -77,7 +78,6 @@ class ConnectableModel {
 
     /**
      * Gets the input buffer of a pedal.
-     * @override
      * @return {!(AudioNode|AudioParam)} The input buffer of this component.
      */
     getInput() {
@@ -86,7 +86,6 @@ class ConnectableModel {
 
     /**
      * Gets the output buffer of a pedal.
-     * @override
      * @return {!(AudioNode|AudioParam)} The output buffer of this component.
      */
     getOutput() {
@@ -95,7 +94,6 @@ class ConnectableModel {
 
     /**
      * Lets the model know who is connected to its effects node.
-     * @override
      * @param {AudioNode} prev Previous node who is connected to this model's effects node.
      */
     setPrev(prev) {
@@ -114,7 +112,6 @@ class ConnectableModel {
 
     /**
      * Disconnects the output buffer of this pedal.
-     * @override
      */
     disconnect() {
         this.outputBuffer.disconnect();
