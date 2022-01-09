@@ -122,24 +122,6 @@ class Box extends Connectable {
                 <div class="name">${this.name}</div>
                 <div class="leds">${this.leds.join('')}</div>
                 <div class="switches">${this.switches.join('')}</div>
-                ${/*<div class="obg"></div>
-                <div class="bg"></div>
-                <div class="bgs">
-                    <div class="bg"></div>
-                    <div class="bg"></div>
-                    <div class="bg"></div>
-                    <div class="bg"></div>
-                    <div class="bg"></div>
-                    <div class="bg"></div>
-                    <div class="bg"></div>
-                    <div class="bg"></div>
-                    <div class="bg"></div>
-                    <div class="bg"></div>
-                    <div class="bg"></div>
-                    <div class="bg"></div>
-                    <div class="bg"></div>
-                    <div class="bg"></div>
-                </div> */''}
             </div>`;
     }
 }
