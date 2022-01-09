@@ -102,6 +102,7 @@ class ConnectableModel extends Component {
 
     /**
      * Routes the internal effects chain.
+     * @protected
      */
     routeInternal() {
         let chain = this.chain;
