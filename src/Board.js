@@ -122,6 +122,8 @@ class Board extends Connectable {
    * @return {Array.<Box>} Pedals in this board.
    */
   getPedals () {
+    // TODO: Fix the type issue below
+    // @ts-ignore
     return this.getChildren();
   };
 
