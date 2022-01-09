@@ -49,14 +49,18 @@ class IConnectableModel {
      * 
      * @return {!(AudioNode|AudioParam)} The input of this IConnectableModel.
      */
-    getInput() {}
+    getInput() {
+      throw new Error('not implemented')
+    }
 
     /**
      * Gets the output of a IConnectableModel.
-     * 
+     *
      * @return {!(AudioNode|AudioParam)} The output of this IConnectableModel.
      */
-    getOutput() {}
+    getOutput() {
+      throw new Error('not implemented')
+    }
 }
 
 export default IConnectableModel;

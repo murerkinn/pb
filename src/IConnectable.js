@@ -49,14 +49,18 @@ class IConnectable {
      * 
      * @return {!(AudioNode|AudioParam)} The effect node of the IConnectable.
      */
-    getInput() {}
+    getInput() {
+      throw new Error('not implemented')
+    }
 
     /**
      * Gets the output buffer of a pedal.
      *
      * @return {!(AudioNode|AudioParam)} The output buffer of this component.
      */
-    getOutput() {}
+    getOutput() {
+      throw new Error('not implemented')
+    }
 }
 
 export default IConnectable;
