@@ -41,7 +41,6 @@ class Output {
 
     /**
      * Gets the destination node.
-     * @override
      * @return {!(AudioNode|AudioParam)} The final node in the signal chain.
      */
     getInput() {
@@ -50,7 +49,6 @@ class Output {
 
     /**
      * Lets the output know who is connected to it.
-     * @override
      * @param {IConnectable} prev Input node.
      */
     setPrev(prev) {
@@ -60,21 +58,16 @@ class Output {
     /**
      * Dummy method for the Connectable interface. It's meaningless for an output to be connected to another Connectable.
      * It's already the final node in the signal chain.
-     * 
-     * @override
      */
     connect(destination) {}
 
     /**
      * Dummy method for the Connectable interface. It's meaningless for an output to have an output.
-     * @override
      */
     getOutput() {}
 
     /**
      * Dummy method for the Connectable interface. The output is never connected to anything else.
-     * 
-     * @override
      */
     disconnect() {}
 }
