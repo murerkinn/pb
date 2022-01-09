@@ -93,7 +93,7 @@ class Led extends Component {
     /**
      * Acts on an off or on event dispatched from this LED's footswitch. Updates the UI accordingly.
      *
-     * @param boolean e ON / OFF event of the switch.
+     * @param {boolean} e ON / OFF event of the switch.
      */
     onSwitchValueChange(e) {
         this.state = e;
