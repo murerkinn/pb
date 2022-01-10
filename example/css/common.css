@@ -42,8 +42,6 @@ footer {
 
     -webkit-transform: rotateX(130deg) translateY(-60%) translateZ(80px) scale(0.6);
     -moz-transform: rotateX(130deg) translateY(-60%) translateZ(80px) scale(0.6);
-    -webkit-transform-style: preserve-3d;
-    -moz-transform-style: preserve-3d;
     -webkit-transform-origin: 50% 0%;
     -moz-transform-origin: 50% 0%;
 }
